@@ -1,27 +1,650 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!--[if IE 7]>
+<html class="ie ie7" lang="ro-RO" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="ro-RO" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="no-NO" prefix="og: http://ogp.me/ns#">
+<!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>Evjenth Apps</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,800,700,400,300" rel="stylesheet" type="text/css" />
+    <title>ROV MOTION</title>
+
+    <style type="text/css">
+        .tve_more_tag {
+            display: none !important;
+        }
+    </style>
+
+
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="alternate" type="application/rss+xml" title="iSucces &raquo; Flux" href="http://www.isucces.net/feed/" />
+    <link rel='stylesheet' id='mailchimpSF_main_css-css' href='http://www.isucces.net/?mcsf_action=main_css&#038;ver=4.6.5' type='text/css' media='all' />
+    <!--[if IE]>
+    <link rel='stylesheet' id='mailchimpSF_ie_css-css'  href='http://www.isucces.net/wp-content/plugins/mailchimp/css/ie.css?ver=4.6.5' type='text/css' media='all' />
+    <![endif]-->
+    <link rel='stylesheet' id='tve_landing_page_base_css-css' href='http://www.isucces.net/wp-content/plugins/thrive-visual-editor/landing-page/templates/css/base.css?ver=1.500.12' type='text/css' media='all' />
+    <link rel='stylesheet' href='style2.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='style.css' type='text/css' />
+    <link rel='stylesheet' id='woocommerce-layout-css' href='//www.isucces.net/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.6.14' type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-smallscreen-css' href='//www.isucces.net/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=2.6.14' type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' id='woocommerce-general-css' href='//www.isucces.net/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.6.14' type='text/css' media='all' />
+    <link rel='stylesheet' id='wc-gateway-ppec-frontend-cart-css' href='http://www.isucces.net/wp-content/plugins/woocommerce-gateway-paypal-express-checkout/assets/css/wc-gateway-ppec-frontend-cart.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='OpenSans-css' href='https://fonts.googleapis.com/css?family=Open+Sans:600' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-css' href='http://www.isucces.net/wp-content/themes/enigma/css/bootstrap.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='default-css' href='http://www.isucces.net/wp-content/themes/enigma/css/default.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='enigma-theme-css' href='http://www.isucces.net/wp-content/themes/enigma/css/enigma-theme.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='media-responsive-css' href='http://www.isucces.net/wp-content/themes/enigma/css/media-responsive.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='animations-css' href='http://www.isucces.net/wp-content/themes/enigma/css/animations.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='theme-animtae-css' href='http://www.isucces.net/wp-content/themes/enigma/css/theme-animtae.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-css' href='http://www.isucces.net/wp-content/themes/enigma/css/font-awesome-4.7.0/css/font-awesome.css?ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='OpenSansRegular-css' href='//fonts.googleapis.com/css?family=Open+Sans&#038;ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='OpenSansBold-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A700&#038;ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='OpenSansSemiBold-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A600&#038;ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='RobotoRegular-css' href='//fonts.googleapis.com/css?family=Roboto&#038;ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='RobotoBold-css' href='//fonts.googleapis.com/css?family=Roboto%3A700&#038;ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='RalewaySemiBold-css' href='//fonts.googleapis.com/css?family=Raleway%3A600&#038;ver=4.6.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='Courgette-css' href='//fonts.googleapis.com/css?family=Courgette&#038;ver=4.6.5' type='text/css' media='all' />
+    <script type='text/javascript' src='http://www.isucces.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript' src='http://www.isucces.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='http://www.isucces.net/wp-content/plugins/thrive-visual-editor/editor/js/compat.min.js?ver=1.500.12'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var THO_Head = { "variations": [], "post_id": "974", "element_tag": "thrive_headline", "woo_tag": "tho_woo" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://www.isucces.net/wp-content/plugins/thrive-headline-optimizer/frontend/js/header.min.js?ver=1.1.6'></script>
+    <script type='text/javascript' src='http://www.isucces.net/wp-content/themes/enigma/js/menu.js?ver=4.6.5'></script>
+    <script type='text/javascript' src='http://www.isucces.net/wp-content/themes/enigma/js/bootstrap.js?ver=4.6.5'></script>
+    <script type='text/javascript' src='http://www.isucces.net/wp-content/themes/enigma/js/enigma_theme_script.js?ver=4.6.5'></script>
+    <link rel='https://api.w.org/' href='http://www.isucces.net/wp-json/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.isucces.net/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.isucces.net/wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 4.6.5" />
+    <meta name="generator" content="WooCommerce 2.6.14" />
+    <link rel='shortlink' href='http://www.isucces.net/?p=974' />
+    <link rel="alternate" type="application/json+oembed" href="http://www.isucces.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.isucces.net%2Fbachelor-project%2F" />
+    <link rel="alternate" type="text/xml+oembed" href="http://www.isucces.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.isucces.net%2Fbachelor-project%2F&#038;format=xml" />
+
+
+
+    <!-- END GADWP Universal Tracking -->
+
+    <meta data-pso-pv="1.2.1" data-pso-pt="page" data-pso-th="7f76b5646b38098bc1470b4183e365b5">
+    <style type="text/css">
+        .thrv_page_section .out {
+            max-width: none;
+        }
+    </style>
+
 </head>
-<body>
-    <div class="navigation">
-        <ul class="header">
-            <li><button type="button">Main</button></li>
-            <li><button type="button">About</button></li>
-            <li><button type="button">More</button></li>
-        </ul>
-
+<body class="page page-id-974 page-template-default custom-background tve_lp" style="">
+    <div class="wrp cnt bSe" style="display: none">
+        <div class="awr"></div>
     </div>
-    <p>Hello world!</p>
+    <div class="tve_wrap_all" id="tcb_landing_page" style="padding: 1px 0 0">
+        <div class="tve_post_lp tve_lp_blank tve_lp_template_wrapper" style="max-width: 1123px;">
+            <div id="tve_flt" class="tve_flt">
+                <div id="tve_editor" class="tve_shortcode_editor">
+                    <div class="tve_lp_header tve_empty_dropzone tve_drop_constraint" data-forbid=".thrv_page_section,.sc_page_section">
+                    </div>
+                    <div class="tve_lp_content tve_editor_main_content tve_empty_dropzone thrv_wrapper tve_no_drag tve_clearfix">
+                        <h1 class=""></h1><div class="thrv_paste_content thrv_wrapper tve_empty_dropzone">
+                            <div class="thrv_wrapper thrv_contentbox_shortcode" data-tve-style="1">
+                                <div class="tve_cb tve_cb1 tve_red">
+                                    <div class="tve_hd tve_cb_cnt tve_empty_dropzone">
+                                        <h3 class="rft tve_p_center" style="font-size: 33px;">A STUDY OF ROV MOTIONS INDUCED BY MANIPULATOR ARMS:</h3><h3 class="tve_p_center rft" style="font-size: 30px;">A CASE STUDY OF THE USE OF MOVING FRAMES AND SE(3)</h3>
+                                        <span></span>
+                                    </div>
+                                    <div class="tve_cb_cnt tve_empty_dropzone">
+                                        <p class="tve_p_center">As a bachelor project, Andreas Evjenth, Otto Andreas Moe and Iselin Violet Kjelland Schøn have studied and analysed the induced motions on an ROV due to movement of its manipulator arms. With help and guidance from Professor Thomas J. Impelluso, an IMECE-article and this web-page with a 3D-web animation has also been produced. Links to the IMECE-article and animation is presented below.</p>
+                                    </div>
+                                </div>
+                            </div><div class="thrv_wrapper thrv_contentbox_shortcode" data-tve-style="1">
+                                <div class="tve_cb tve_cb1 tve_red">
+                                    <div class="tve_hd tve_cb_cnt tve_empty_dropzone">
+                                        <h3 class="tve_p_center"><a href="http://home.hib.no/prosjekter/dynamics/2017/robot/animation/index.html" target="_blank" class="" style="color: rgb(255, 255, 255);">CLICK T﻿﻿﻿﻿HIS LINK﻿﻿﻿ for the 3D Canvas</a></h3>
+                                        <span></span>
+                                    </div>
+                                    <div class="tve_cb_cnt tve_empty_dropzone">
+                                        <div class="thrv_wrapper tcb-flex-row tcb--cols--3" style="margin-left: 0px !important; margin-bottom: -100px !important; padding: 0px !important; margin-top: -50px !important;">
+                                            <div class="tcb-flex-col tve_empty_dropzone">
+                                                <div class="thrv_wrapper thrv_bullets_shortcode">
+                                                    <ul class="tve_ul tve_ul2 tve_red">
+                                                        <li data-original-title="" title="" class="">Left mouse: rotation</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="tcb-flex-col tve_empty_dropzone">
+                                                <div class="thrv_wrapper thrv_bullets_shortcode">
+                                                    <ul class="tve_ul tve_ul2 tve_red">
+                                                        <li data-original-title="" title="" class="tve_p_left" style="color: rgb(21, 21, 21); background-color: rgb(255, 255, 255);">Middel mouse/scroll: zoom &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="tcb-flex-col tve_empty_dropzone">
+                                                <div class="thrv_wrapper thrv_bullets_shortcode">
+                                                    <ul class="tve_ul tve_ul2 tve_red">
+                                                        <li data-original-title="" title="" class="">Right mouse: panning</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><div style="width: 550px;" class="thrv_wrapper tve_image_caption aligncenter">
+                                            <span class="tve_image_frame">
+                                                <a href="http://home.hib.no/prosjekter/dynamics/2017/robot/animation/index.html" target="_blank" class=""><img class="tve_image" alt="" style="width: 550px;" src="images/rov.png" width="550" height="330" data-attachment-id="976"></a>
+                                            </span>
+                                        </div><p class="tve_p_center">WEBGL ANIMATIONS BASED ON MOVING FRAME METHOD IN DYNAMICS</p>
+                                    </div>
+                                </div>
+                            </div><div class="thrv_wrapper thrv_contentbox_shortcode" data-tve-style="1">
+                                <div class="tve_cb tve_cb1 tve_red">
+                                    <div class="tve_hd tve_cb_cnt tve_empty_dropzone">
+                                        <span></span>
+                                        <h3 class="tve_p_center">
+                                            Papers and codes
+                                        </h3>
+                                    </div>
+                                    <div class="tve_cb_cnt tve_empty_dropzone">
+                                        <div class="thrv_wrapper tcb-flex-row tcb--cols--2">
+                                            <div class="tcb-flex-col tve_empty_dropzone">
+                                                <h3 class="tve_p_center">
+                                                    IMECE2017-70110
+                                                </h3><div style="width: 199px" class="thrv_wrapper tve_image_caption aligncenter">
+                                                    <span class="tve_image_frame">
+                                                        <a target="_blank" href="article/IMECE2017-70110.pdf"><img class="tve_image" alt="" style="width: 199px" src="images/article.png" width="199" height="253" data-attachment-id="981"></a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="tcb-flex-col tve_empty_dropzone">
+                                                <h3 class="tve_p_center">HVL BACHELOR REPORT</h3><div style="width: 199px" class="thrv_wrapper tve_image_caption aligncenter">
+                                                    <span class="tve_image_frame">
+                                                        <a target="_blank" href="article/ARTICLE_HVL.pdf"><img class="tve_image" alt="" style="width: 199px" src="images/articleHVL.png" width="199" height="253" data-attachment-id="981"></a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="thrv_wrapper tcb-flex-row tcb--cols--2">
+                                        <div class="tcb-flex-col tve_empty_dropzone">
+                                            <h3 class="tve_p_center">MATLAB Code</h3><div class="thrv_wrapper tcb-flex-row tcb--cols--1">
+                                                <div class="tcb-flex-col tve_empty_dropzone">
+                                                    <div style="width: 199px" class="thrv_wrapper tve_image_caption aligncenter">
+                                                        <span class="tve_image_frame">
+                                                            <a target="_blank" href="article/matlab.txt"><img class="tve_image" alt="" style="width: 199px" src="images/matlab.png" width="199" height="253" data-attachment-id="981"></a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="tcb-flex-col tve_empty_dropzone">
+                                            <h3 class="tve_p_center">Javascript Code</h3><div class="thrv_wrapper tcb-flex-row tcb--cols--3">
+                                                <div class="tcb-flex-col tve_empty_dropzone">
+                                                    <p><br></p><div style="width: 153px; margin-top: -15px !important; margin-bottom: 0px !important;" class="thrv_wrapper tve_image_caption aligncenter">
+                                                        <span class="tve_image_frame">
+                                                            <a target="_blank" href="article/starter.txt"><img class="tve_image" alt="" style="width: 199px" src="images/javascript.png" width="199" height="253" data-attachment-id="981"></a>
+                                                        </span>
+                                                    </div><p class="tve_p_center">Starter.js</p>
+                                                </div>
+                                                <div class="tcb-flex-col tve_empty_dropzone">
+                                                    <p><br></p><div style="width: 153px; margin-top: -15px !important; margin-bottom: 0px !important;" class="thrv_wrapper tve_image_caption aligncenter">
+                                                        <span class="tve_image_frame">
+                                                            <a target="_blank" href="article/main.txt"><img class="tve_image" alt="" style="width: 199px" src="images/javascript.png" width="199" height="253" data-attachment-id="981"></a>
+                                                        </span>
+                                                    </div><p class="tve_p_center">Main.js</p>
+                                                </div>
+                                                <div class="tcb-flex-col tve_empty_dropzone">
+                                                    <p><br></p><div style="width: 153px; margin-top: -15px !important; margin-bottom: 0px !important;" class="thrv_wrapper tve_image_caption aligncenter">
+                                                        <span class="tve_image_frame">
+                                                            <a target="_blank" href="article/dynamics.txt"><img class="tve_image" alt="" style="width: 199px" src="images/javascript.png" width="199" height="253" data-attachment-id="981"></a>
+                                                        </span>
+                                                    </div><p class="tve_p_center">Dynamics.js</p>
+                                                </div>
+                                            </div><p>&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="thrv_wrapper thrv_contentbox_shortcode" data-tve-style="1">
+                            <div class="tve_cb tve_cb1 tve_red">
+                                <div class="tve_hd tve_cb_cnt tve_empty_dropzone">
+                                    <span></span>
 
 
 
 
+                                    <h3 class="tve_p_center">Contact Us</h3>
+                                </div>
+                                <div class="tve_cb_cnt tve_empty_dropzone">
+                                    <div class="thrv_wrapper tcb-flex-row tcb--cols--4">
+                                        <div class="tcb-flex-col tve_empty_dropzone">
+                                            <p><b>Andreas Evjenth</b></p>
+                                            <div class="not_bold">
+                                                <p>
+                                                    Subsea Engineer
+                                                </p><p>Department of Mechanical and Marine Engineering</p><p>Western Norway University of Applied Sciences</p><p>Bergen, Norway​</p><a href="mailto:anstroen@gmail.com" class="">anstroen@gmail.com</a><br class=""><br class="">
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="tcb-flex-col tve_empty_dropzone"><p><span class="bold_text">Iselin Violet Kjelland Schøn</span></p><p>Subsea Engineer</p><p>Department of Mechanical and Marine Engineering</p><p>Western Norway University of Applied Sciences</p><p>Bergen, Norway​</p><a href="mailto:iselinvks@gmail.com" class="">iselinvks@gmail.com</a></div>
+                                        <div class="tcb-flex-col tve_empty_dropzone"><p><span class="bold_text">Otto Andreas Moe</span></p><p>Subsea Engineer</p><p>Department of Mechanical and Marine Engineering</p><p>Western Norway University of Applied Sciences</p><p>Bergen, Norway​</p><a href="mailto:ottoandreasmoe@gmail.com" class="">ottoandreasmoe@gmail.com</a></div>
+                                        <div class="tcb-flex-col tve_empty_dropzone"><p><span class="bold_text">Thomas Joseph Impelluso</span></p><p>Professor</p><p>Department of Mechanical and Marine Engineering</p><p>Western Norway University of Applied Sciences</p><p>Bergen, Norway​</p><a href="mailto:tjm@hib.no" class="">tjm@hib.no</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="thrv_wrapper thrv_contentbox_shortcode" data-tve-style="1">
+                            <div class="tve_cb tve_cb1 tve_red">
+                                <div class="tve_hd tve_cb_cnt tve_empty_dropzone">
+                                    <h3 class="tve_p_center">Curricula Vitae</h3>
+                                    <span></span>
+                                </div>
+                                <div class="tve_cb_cnt tve_empty_dropzone">
+                                    <div class="thrv_wrapper tcb-flex-row tcb--cols--3">
+                                        <div class="tcb-flex-col tve_empty_dropzone">
+                                            <p class="tve_p_center"><span class="bold_text">Andreas Evjenth</span></p><div style="width: 199px" class="thrv_wrapper tve_image_caption aligncenter">
+                                                <span class="tve_image_frame">
+                                                    <a target="_blank" href="CV/AndreasCV.pdf"><img class="tve_image" alt="" style="width: 199px" src="images/AndreasCV.png" width="199" height="253" data-attachment-id="981"></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="tcb-flex-col tve_empty_dropzone">
+                                            <p class="tve_p_center"><span class="bold_text">Iselin Violet Kjelland Schøn</span></p><div style="width: 199px" class="thrv_wrapper tve_image_caption aligncenter">
+                                                <span class="tve_image_frame">
+                                                    <a target="_blank" href="CV/IselinCV.pdf"><img class="tve_image" alt="" style="width: 199px" src="images/IselinCV.png" width="199" height="253" data-attachment-id="981"></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="tcb-flex-col tve_empty_dropzone">
+                                            <p class="tve_p_center"><span class="bold_text">Otto Andreas Moe</span></p><div style="width: 199px" class="thrv_wrapper tve_image_caption aligncenter">
+                                                <span class="tve_image_frame">
+                                                    <a target="_blank" href="CV/OttoCV.pdf"><img class="tve_image" alt="" style="width: 199px" src="images/OttoCV.png" width="199" height="253" data-attachment-id="981"></a>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div><p style="font-size: 30px;"><span class="bold_text"></span></p>
+                    </div>
+                </div>
+                <div class="tve_lp_footer tve_empty_dropzone tve_drop_constraint" data-forbid=".thrv_page_section,.sc_page_section">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div style="display:none;" id="photos-box-tags" class="photos-box-tags"><ul><li><a href="http://felestore.com" target="_blank" title="felestore">felestore</a></li><li><a href="http://photoboxone.com//category/plugins/" target="_blank" title="Plugins Wordpress">Plugins Wordpress</a></li><li><a href="http://photoboxone.com//category/themes/" target="_blank" title="Themes Wordpress">Themes Wordpress</a></li><li><a href="http://photoboxone.com//category/documents/" target="_blank" title="Documents Wordpress">Documents Wordpress</a></li></ul></div>   <div style="display:none">
+        <div id="fca_eoi_lightbox_430">
+            <style type='text/css' class='fca-eoi-style'>
+                .fca_eoi_form {
+                    margin: auto;
+                }
+
+                    .fca_eoi_form p {
+                        width: auto;
+                    }
+
+                #fca_eoi_form_430 input {
+                    max-width: 9999px;
+                }
+
+                #fca_eoi_form_430 .fca_eoi_layout_email_field_wrapper {
+                    width: 100% !important;
+                }
+
+                #fca_eoi_form_430 .fca_eoi_layout_name_field_wrapper {
+                    display: none !important;
+                }
+
+                div.fca_eoi_form_text_element, input.fca_eoi_form_input_element, input.fca_eoi_form_button_element {
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                    line-height: normal;
+                    font-size: 14px;
+                    letter-spacing: normal;
+                    word-spacing: normal;
+                    text-indent: 0;
+                    text-shadow: none;
+                    text-decoration: none;
+                    text-transform: none;
+                    white-space: normal;
+                    width: inherit;
+                    height: inherit;
+                    background-image: none;
+                    border: none;
+                    border-radius: 0;
+                    box-shadow: none;
+                    box-sizing: border-box;
+                    transition: none;
+                    outline: none;
+                    -webkit-transition: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    color: #000;
+                    font-family: "Open Sans", sans-serif;
+                    font-weight: normal;
+                    transition: background 350ms linear;
+                }
+
+                    input.fca_eoi_form_button_element:hover {
+                        background-color: inherit !important;
+                    }
+
+                div.fca_eoi_form_text_element {
+                    text-align: center;
+                }
+
+                div.fca_eoi_layout_popup_close {
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                    line-height: normal;
+                    font-size: 14px;
+                    letter-spacing: normal;
+                    word-spacing: normal;
+                    text-indent: 0;
+                    text-shadow: none;
+                    text-decoration: none;
+                    text-transform: none;
+                    white-space: normal;
+                    width: inherit;
+                    height: inherit;
+                    background-image: none;
+                    border: none;
+                    border-radius: 0;
+                    box-shadow: none;
+                    box-sizing: border-box;
+                    transition: none;
+                    outline: none;
+                    -webkit-transition: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    color: #000;
+                    font-family: "Open Sans", sans-serif;
+                    font-weight: normal;
+                    display: block;
+                    position: absolute;
+                    z-index: 9999992;
+                    top: -10px;
+                    right: -10px;
+                    background: rgba(0, 0, 0, 0.6);
+                    border: 1px solid #000;
+                    color: #fff;
+                    font-weight: bold;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    cursor: pointer;
+                }
+
+                div.fca_eoi_layout_headline_copy_wrapper {
+                    font-weight: bold;
+                }
+
+                div.fca_eoi_layout_5, form.fca_eoi_layout_5 {
+                    display: inline-block;
+                }
+
+                    div.fca_eoi_layout_5.fca_eoi_layout_widget, form.fca_eoi_layout_5.fca_eoi_layout_widget {
+                        max-width: 300px;
+                    }
+
+                    div.fca_eoi_layout_5.fca_eoi_layout_postbox, form.fca_eoi_layout_5.fca_eoi_layout_postbox {
+                        max-width: 600px;
+                    }
+
+                    div.fca_eoi_layout_5.fca_eoi_layout_popup, form.fca_eoi_layout_5.fca_eoi_layout_popup {
+                        max-width: 650px;
+                    }
+
+                    div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_field_wrapper, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_field_wrapper {
+                        float: none;
+                        width: 100%;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_content_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_content_wrapper {
+                        margin: 20px;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper {
+                        border: solid 1px transparent;
+                        width: 49%;
+                        border-radius: 3px;
+                        margin-bottom: 10px;
+                        position: relative;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_name_field_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_name_field_wrapper {
+                        float: left;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_email_field_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_email_field_wrapper {
+                        float: right;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_inputs_wrapper_no_name div.fca_eoi_layout_field_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_inputs_wrapper_no_name div.fca_eoi_layout_field_wrapper {
+                        float: none;
+                        width: 100%;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper input, form.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper input, div.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper input:focus, form.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper input:focus {
+                        border: none !important;
+                        width: 100%;
+                        height: auto;
+                        font-size: 16px;
+                        line-height: 1.2em;
+                        padding: 7px 0;
+                        outline: none;
+                        background: none !important;
+                        box-shadow: none;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_submit_button_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_submit_button_wrapper {
+                        clear: both;
+                        transition: background 350ms linear, border-color 350ms linear;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5 div.fca_eoi_layout_fatcatapps_link_wrapper a {
+                        display: block;
+                        margin: 10px 0 0;
+                        font-size: 12px;
+                    }
+
+                @media (min-width:1px) and (max-width:450px),(min-height:1px) and (max-height:450px) {
+                    div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a {
+                        font-size: 13px !important;
+                    }
+                }
+
+                @media (min-width:1px) and (max-width:320px),(min-height:1px) and (max-height:320px) {
+                    div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_description_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper i.fa:before, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_field_wrapper div.fca_eoi_layout_field_inner input:focus, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_submit_button_wrapper input:focus, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_form_text_element.fca_eoi_layout_privacy_copy_wrapper div, div.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, div.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5.fca_eoi_layout_widget div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, div.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5.fca_eoi_layout_postbox div.fca_eoi_layout_content_wrapper div.fca_eoi_layout_fatcatapps_link_wrapper a {
+                        font-size: 12px !important;
+                    }
+                }
+
+                @media (min-width:1px) and (max-width:450px),(min-height:1px) and (max-height:450px) {
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_content_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_content_wrapper {
+                        margin: 8px 13px;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_fatcatapps_link_wrapper a, form.fca_eoi_layout_5 div.fca_eoi_layout_fatcatapps_link_wrapper a {
+                        margin: 0;
+                    }
+
+                    div.fca_eoi_layout_5 div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper, form.fca_eoi_layout_5 div.fca_eoi_form_text_element.fca_eoi_layout_headline_copy_wrapper {
+                        margin-bottom: 5px;
+                    }
+                }
+
+                @media (min-width:1px) and (max-width:320px),(min-height:1px) and (max-height:320px) {
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_popup_close, form.fca_eoi_layout_5 div.fca_eoi_layout_popup_close {
+                        top: -1px;
+                        right: -1px;
+                    }
+                }
+
+                @media (min-width:1px) and (max-width:768px) {
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper {
+                        float: none;
+                        width: 100%;
+                    }
+                }
+
+                div.fca_eoi_layout_5 div.fca_eoi_layout_headline_copy_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_headline_copy_wrapper {
+                    margin-bottom: 20px;
+                }
+
+                @media (min-width:1px) and (max-width:450px),(min-height:1px) and (max-height:450px) {
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_headline_copy_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_headline_copy_wrapper {
+                        margin-bottom: 0;
+                    }
+                }
+
+                div.fca_eoi_layout_5 div.fca_eoi_layout_inputs_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_inputs_wrapper {
+                    margin: 20px 0;
+                }
+
+                @media (min-width:1px) and (max-width:450px),(min-height:1px) and (max-height:450px) {
+                    div.fca_eoi_layout_5 div.fca_eoi_layout_inputs_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_inputs_wrapper {
+                        margin: 8px 0;
+                    }
+                }
+
+                div.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_field_wrapper {
+                    border-radius: 5px;
+                }
+
+                div.fca_eoi_layout_5 div.fca_eoi_layout_field_inner, form.fca_eoi_layout_5 div.fca_eoi_layout_field_inner {
+                    margin: 0 10px;
+                }
+
+                div.fca_eoi_layout_5 div.fca_eoi_layout_submit_button_wrapper, form.fca_eoi_layout_5 div.fca_eoi_layout_submit_button_wrapper {
+                    border-bottom: solid 4px transparent;
+                    border-radius: 5px;
+                    padding: 0 !important;
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .tve_wrap_all p {
+                    margin: 0px;
+                }
+
+                div.fca_eoi_layout_5 div.fca_eoi_layout_submit_button_wrapper input, form.fca_eoi_layout_5 div.fca_eoi_layout_submit_button_wrapper input {
+                    border: 0 !important;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    margin: 0;
+                    height: 2.8em;
+                    padding: 0;
+                    text-shadow: 0 0 2px black;
+                    white-space: normal;
+                    width: 100%;
+                }
+
+                #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup {
+                    background-color: #f6f6f6 !important;
+                }
+
+                #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup {
+                    border-color: #cccccc !important;
+                }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_headline_copy_wrapper div {
+                        font-size: 28px !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_headline_copy_wrapper div {
+                        color: #1a78d7 !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_description_copy_wrapper p, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_description_copy_wrapper div {
+                        font-size: 14px !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_description_copy_wrapper p, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_description_copy_wrapper div {
+                        color: #000000 !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_name_field_wrapper, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_name_field_wrapper input {
+                        font-size: 18px !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_name_field_wrapper, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_name_field_wrapper input {
+                        color: #777777 !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_name_field_wrapper, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_name_field_wrapper input {
+                        background-color: #ffffff !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_name_field_wrapper {
+                        border-color: #cccccc !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_email_field_wrapper, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_email_field_wrapper input {
+                        font-size: 18px !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_email_field_wrapper, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_email_field_wrapper input {
+                        color: #777777 !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_email_field_wrapper, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_email_field_wrapper input {
+                        background-color: #ffffff !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_email_field_wrapper {
+                        border-color: #cccccc !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_submit_button_wrapper input:hover {
+                        background-color: inherit !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_submit_button_wrapper input {
+                        font-size: 18px !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_submit_button_wrapper input {
+                        color: #ffffff !important;
+                    }
+
+                    #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_submit_button_wrapper input {
+                        background-color: #e67e22 !important;
+                    }
+
+                #fca_eoi_form_430 .fca_eoi_layout_submit_button_wrapper {
+                    background-color: #a15818 !important;
+                }
+
+                #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_privacy_copy_wrapper div {
+                    font-size: 14px !important;
+                }
+
+                #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_privacy_copy_wrapper div {
+                    color: #8f8f8f !important;
+                }
+
+                #fca_eoi_form_430 .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_fatcatapps_link_wrapper a, .fca_eoi_layout_5.fca_eoi_layout_popup div.fca_eoi_layout_fatcatapps_link_wrapper a:hover {
+                    color: #8f8f8f !important;
+                }
+            </style><div id='fca_eoi_form_430' class='fca_eoi_form_content'><form method='post' action='#' class='fca_eoi_form fca_eoi_layout_5 fca_eoi_layout_popup' data-fca_eoi_list_id='f1e3cc5304' data-fca_eoi_thank_you_page='http://www.isucces.net/' data-fca_eoi_thank_you_mode='redirect' novalidate><input type='hidden' id='fca_eoi_form_id' name='fca_eoi_form_id' value='430'>
 
 
 </body>
 </html>
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+ Served from: www.isucces.net @ 2017-05-03 18:41:31 by W3 Total Cache -->
