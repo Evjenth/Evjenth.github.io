@@ -173,7 +173,7 @@ function init() {
         roughness: 0.8,
         color: 0xffffff,
         metalness: 0.2,
-        bumpScale: 0.0005
+        bumpScale: 0.005
     });
     var textureLoader = new THREE.TextureLoader();
     textureLoader.load("textures/hardwood2_diffuse.jpg", function (map) {
