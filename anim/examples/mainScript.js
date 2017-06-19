@@ -9,11 +9,16 @@ function reactKey(evt) {
     }
 }
 
+function prevPiece() {
+    scene.remove(objects[--pieceCount].geometry);
+}
+
 function nextPiece() {
     pieceCount++;
     switch (pieceCount) {
         case 1:
             var mtlLoader = new THREE.MTLLoader();
+            var temp
             mtlLoader.setPath('models/obj/');
             mtlLoader.load('square1.mtl', function (materials) {
                 materials.preload();
@@ -27,9 +32,14 @@ function nextPiece() {
                     object.position.x = -3;
                     object.position.y = 0;
                     object.position.z = 0;
-                    objects[0] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 0, 0], frames: 50, frameCount: 0 }
+                    object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; node.receiveShadow = true; } });
+                    objects[0] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 0, 0], frames: 50, frameCount: 0 };
+                    objects[0].geometry.castShadow = true;
                     scene.add(objects[0].geometry);
+                
+                    
                 });
+                
             });
             break;
         case 2:
@@ -45,8 +55,11 @@ function nextPiece() {
                     object1.scale.x = 0.01;
                     object1.scale.y = 0.01;
                     object1.scale.z = 0.01;
+                   
                     object1.position.z = 3;
+                    object1.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; } });
                     objects[1] = { geometry: object1, startpos: [object1.position.x,object1.position.y,object1.position.z], endpos: [0, 0, 0], frames: 50, frameCount: 0 };
+                    objects[1].geometry.castShadow = true;
                     scene.add(objects[1].geometry);
                 });
             });
@@ -64,6 +77,7 @@ function nextPiece() {
                     object2.scale.x = 0.01;
                     object2.scale.y = 0.01;
                     object2.scale.z = 0.01;
+                    object2.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; } });
                     objects[2] = { geometry: object2, startpos: [object2.position.x, object2.position.y, object2.position.z], endpos: [0, 0, -1.55], frames: 50, frameCount: 0 };
                     scene.add(objects[2].geometry);
 
@@ -82,8 +96,12 @@ function nextPiece() {
                     object.scale.x = 0.01;
                     object.scale.y = 0.01;
                     object.scale.z = 0.01;
+                    object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; } });
                     //object.position.y = 1.45;
                     objects[3] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 1.45,0], frames: 50, frameCount: 0 };
+                    objects[0].geometry.castShadow = true;
+                    objects[0].geometry.receiveShadow = true;
+                    objects[0].needsUpdate = true;
                     scene.add(objects[3].geometry);
                 });
             });
@@ -93,18 +111,11 @@ function nextPiece() {
 }
 if (!Detector.webgl) Detector.addGetWebGLMessage();
 
-var camera, scene, renderer,
-    bulbLight, bulbMat, ambientLight,
+var camera, scene, renderer, spotlight,
+    bulbMat, ambientLight,
     object, loader, stats;
 var ballMat, cubeMat, floorMat;
 
-
-
-
-var params = {
-    shadows: true,
-    exposure: 0.68,
-};
 
 
 var clock = new THREE.Clock();
@@ -127,21 +138,27 @@ function init() {
 
     scene = new THREE.Scene();
 
-    var bulbGeometry = new THREE.SphereGeometry(0.02, 16, 8);
-    bulbLight = new THREE.PointLight(0xffee88, 1, 100, 2);
+    
 
-    bulbMat = new THREE.MeshStandardMaterial({
-        emissive: 0xffffee,
-        emissiveIntensity: 1,
-        color: 0x000000
-    });
-    bulbLight.add(new THREE.Mesh(bulbGeometry, bulbMat));
-    bulbLight.position.set(0, 2, 0);
-    bulbLight.castShadow = true;
-    scene.add(bulbLight);
-
-    hemiLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 0.02);
+    hemiLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 2);
     scene.add(hemiLight);
+
+    spotlight = new THREE.SpotLight(0xddeeff, 50);
+    spotlight.position.set(5, 5, 0);
+    spotlight.distance = 10;
+    spotlight.castShadow = true;
+
+    spotlight.shadow.camera.near = 1;
+    spotlight.shadow.camera.far = 20;
+    scene.add(spotlight);
+
+
+    var boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+    var boxMesh = new THREE.Mesh(boxGeometry, cubeMat);
+    boxMesh.position.set(-0.5, 0.25, -1);
+    boxMesh.castShadow = true;
+    scene.add(boxMesh);
+    
 
     floorMat = new THREE.MeshStandardMaterial({
         roughness: 0.8,
@@ -209,7 +226,7 @@ function init() {
 }
 
 function onWindowResize() {
-
+    
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 
@@ -227,24 +244,16 @@ function animate() {
 
 }
 
-var previousShadowMap = false;
 
 function render() {
 
-    renderer.toneMappingExposure = Math.pow(params.exposure, 5.0); // to allow for very bright scenes.
-    renderer.shadowMap.enabled = params.shadows;
-    bulbLight.castShadow = params.shadows;
-    if (params.shadows !== previousShadowMap) {
-        floorMat.needsUpdate = true;
-        previousShadowMap = params.shadows;
-    }
 
     if (objects[0] != undefined) {
         if (objects[0].frameCount < objects[0].frames) {
             objects[0].geometry.position.x += ((objects[0].endpos[0] - objects[0].startpos[0]) / objects[0].frames);
             objects[0].geometry.position.y += ((objects[0].endpos[1] - objects[0].startpos[1]) / objects[0].frames);
             objects[0].geometry.position.z += ((objects[0].endpos[2] - objects[0].startpos[2]) / objects[0].frames);
-            console.log(objects[0].geometry.position);
+            //console.log(objects[0].geometry.position);
             objects[0].frameCount++;
         }
     }
@@ -273,13 +282,14 @@ function render() {
             objects[3].geometry.position.z += ((objects[3].endpos[2] - objects[3].startpos[2]) / objects[3].frames);
             //console.log(objects[3].geometry.position);
             objects[3].frameCount++;
+            
         }
     }
 
-    bulbLight.power = 100;//bulbLuminousPowers[ params.bulbPower ];
-    bulbMat.emissiveIntensity = 1000;// bulbLight.intensity / Math.pow( 0.02, 2.0 ); // convert from intensity to irradiance at bulb surface
+    //bulbLight.power = 100;//bulbLuminousPowers[ params.bulbPower ];
+    //bulbMat.emissiveIntensity = 1000;// bulbLight.intensity / Math.pow( 0.02, 2.0 ); // convert from intensity to irradiance at bulb surface
 
-    hemiLight.intensity = 10;//hemiLuminousIrradiances[ params.hemiIrradiance ];
+    //hemiLight.intensity = 5;//hemiLuminousIrradiances[ params.hemiIrradiance ];
     //var time = Date.now() * 0.0005;
     var delta = clock.getDelta();
 
