@@ -10,15 +10,24 @@ function reactKey(evt) {
 }
 
 function prevPiece() {
-    scene.remove(objects[--pieceCount].geometry);
+    pieceCount--;
+    if (pieceCount == -1) {
+        pieceCount = 0;
+        return;
+    }
+    scene.remove(objects[pieceCount].geometry);
 }
 
 function nextPiece() {
     pieceCount++;
+    if (pieceCount == 5) {
+        pieceCount = 4;
+        return;
+    }
+
     switch (pieceCount) {
         case 1:
             var mtlLoader = new THREE.MTLLoader();
-            var temp
             mtlLoader.setPath('models/obj/');
             mtlLoader.load('square1.mtl', function (materials) {
                 materials.preload();
@@ -36,10 +45,10 @@ function nextPiece() {
                     objects[0] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 0, 0], frames: 50, frameCount: 0 };
                     objects[0].geometry.castShadow = true;
                     scene.add(objects[0].geometry);
-                
-                    
+
+
                 });
-                
+
             });
             break;
         case 2:
@@ -55,10 +64,10 @@ function nextPiece() {
                     object1.scale.x = 0.01;
                     object1.scale.y = 0.01;
                     object1.scale.z = 0.01;
-                   
+
                     object1.position.z = 3;
                     object1.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; } });
-                    objects[1] = { geometry: object1, startpos: [object1.position.x,object1.position.y,object1.position.z], endpos: [0, 0, 0], frames: 50, frameCount: 0 };
+                    objects[1] = { geometry: object1, startpos: [object1.position.x, object1.position.y, object1.position.z], endpos: [0, 0, 0], frames: 50, frameCount: 0 };
                     objects[1].geometry.castShadow = true;
                     scene.add(objects[1].geometry);
                 });
@@ -98,7 +107,7 @@ function nextPiece() {
                     object.scale.z = 0.01;
                     object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; } });
                     //object.position.y = 1.45;
-                    objects[3] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 1.45,0], frames: 50, frameCount: 0 };
+                    objects[3] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 1.45, 0], frames: 50, frameCount: 0 };
                     objects[0].geometry.castShadow = true;
                     objects[0].geometry.receiveShadow = true;
                     objects[0].needsUpdate = true;
@@ -138,7 +147,7 @@ function init() {
 
     scene = new THREE.Scene();
 
-    
+
 
     hemiLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 2);
     scene.add(hemiLight);
@@ -158,7 +167,7 @@ function init() {
     boxMesh.position.set(-0.5, 0.25, -1);
     boxMesh.castShadow = true;
     scene.add(boxMesh);
-    
+
 
     floorMat = new THREE.MeshStandardMaterial({
         roughness: 0.8,
@@ -205,11 +214,12 @@ function init() {
 
 
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({ antialis : true });
     renderer.physicallyCorrectLights = true;
     renderer.gammaInput = true;
     renderer.gammaOutput = true;
     renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.ReinhardToneMapping;
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -226,7 +236,7 @@ function init() {
 }
 
 function onWindowResize() {
-    
+
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 
@@ -282,7 +292,7 @@ function render() {
             objects[3].geometry.position.z += ((objects[3].endpos[2] - objects[3].startpos[2]) / objects[3].frames);
             //console.log(objects[3].geometry.position);
             objects[3].frameCount++;
-            
+
         }
     }
 
