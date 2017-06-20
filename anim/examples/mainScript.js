@@ -42,7 +42,7 @@ function init() {
 
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
-    camera.position.set(0, 7, 4);
+    camera.position.set(0, 7, 12);
     
     scene = new THREE.Scene();
    
@@ -63,7 +63,8 @@ function init() {
     spotlight1 = new THREE.SpotLight(0xddeeff, 50);
     spotlight1.position.set(-5,5, 0);
     spotlight1.distance = 40;
-    //scene.add(spotlight1);
+    spotlight.castShadow = true;
+    scene.add(spotlight1);
 
 
   
@@ -129,7 +130,7 @@ function init() {
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 0, 0);
     controls.update();
-    camera.lookAt(new THREE.Vector3(0, 4, 0));
+    camera.lookAt(new THREE.Vector3(0, 5, 0));
     window.addEventListener('resize', onWindowResize, false);
 
 
