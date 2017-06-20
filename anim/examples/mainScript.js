@@ -41,15 +41,14 @@ function init() {
     container.appendChild(stats.dom);
 
 
-    camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.1, 10000);
-    camera.position.set(0, 6, 3);
-    camera.lookAt(0, 0, 0);
-
+    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
+    camera.position.set(0, 7, 4);
+    
     scene = new THREE.Scene();
+   
 
 
-
-    hemiLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 2);
+    hemiLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 5);
     scene.add(hemiLight);
 
     spotlight = new THREE.SpotLight(0xddeeff, 50);
@@ -67,11 +66,7 @@ function init() {
     //scene.add(spotlight1);
 
 
-    var boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-    var boxMesh = new THREE.Mesh(boxGeometry, cubeMat);
-    boxMesh.position.set(-0.5, 0.25, -1);
-    boxMesh.castShadow = true;
-    scene.add(boxMesh);
+  
 
 
     floorMat = new THREE.MeshStandardMaterial({
@@ -134,7 +129,7 @@ function init() {
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 0, 0);
     controls.update();
-
+    camera.lookAt(new THREE.Vector3(0, 4, 0));
     window.addEventListener('resize', onWindowResize, false);
 
 
@@ -161,7 +156,7 @@ function animate() {
 
 
 function render() {
-
+    
     for (var a = 0; a < objects.length ; a++){
         if (objects[a] != undefined) {
             if (objects[a].frameCount < objects[a].frames) {
