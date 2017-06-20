@@ -41,10 +41,9 @@ function init() {
     container.appendChild(stats.dom);
 
 
-    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
-    camera.position.x = -4;
-    camera.position.z = 4;
-    camera.position.y = 2;
+    camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.1, 10000);
+    camera.position.set(0, 6, 3);
+    camera.lookAt(0, 0, 0);
 
     scene = new THREE.Scene();
 
@@ -61,6 +60,11 @@ function init() {
     spotlight.shadow.camera.near = 1;
     spotlight.shadow.camera.far = 20;
     scene.add(spotlight);
+
+    spotlight1 = new THREE.SpotLight(0xddeeff, 50);
+    spotlight1.position.set(-5,5, 0);
+    spotlight1.distance = 40;
+    //scene.add(spotlight1);
 
 
     var boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
@@ -158,53 +162,19 @@ function animate() {
 
 function render() {
 
+    for (var a = 0; a < objects.length ; a++){
+        if (objects[a] != undefined) {
+            if (objects[a].frameCount < objects[a].frames) {
+                objects[a].geometry.position.set(
+                    objects[a].geometry.position.x + ((objects[a].endpos[0] - objects[a].startpos[0]) / objects[a].frames),
+                    objects[a].geometry.position.y + ((objects[a].endpos[1] - objects[a].startpos[1]) / objects[a].frames),
+                    objects[a].geometry.position.z + ((objects[a].endpos[2] - objects[a].startpos[2]) / objects[a].frames));
 
-    if (objects[0] != undefined) {
-        if (objects[0].frameCount < objects[0].frames) {
-            objects[0].geometry.position.x += ((objects[0].endpos[0] - objects[0].startpos[0]) / objects[0].frames);
-            objects[0].geometry.position.y += ((objects[0].endpos[1] - objects[0].startpos[1]) / objects[0].frames);
-            objects[0].geometry.position.z += ((objects[0].endpos[2] - objects[0].startpos[2]) / objects[0].frames);
-            //console.log(objects[0].geometry.position);
-            objects[0].frameCount++;
+                objects[a].frameCount++;
+            }
         }
     }
-    if (objects[1] != undefined) {
-        if (objects[1].frameCount < objects[1].frames) {
-            objects[1].geometry.position.x += ((objects[1].endpos[0] - objects[1].startpos[0]) / objects[1].frames);
-            objects[1].geometry.position.y += ((objects[1].endpos[1] - objects[1].startpos[1]) / objects[1].frames);
-            objects[1].geometry.position.z += ((objects[1].endpos[2] - objects[1].startpos[2]) / objects[1].frames);
-            //console.log(objects[1].geometry.position);
-            objects[1].frameCount++;
-        }
-    }
-    if (objects[2] != undefined) {
-        if (objects[2].frameCount < objects[2].frames) {
-            objects[2].geometry.position.x += ((objects[2].endpos[0] - objects[2].startpos[0]) / objects[2].frames);
-            objects[2].geometry.position.y += ((objects[2].endpos[1] - objects[2].startpos[1]) / objects[2].frames);
-            objects[2].geometry.position.z += ((objects[2].endpos[2] - objects[2].startpos[2]) / objects[2].frames);
-            //console.log(objects[2].geometry.position);
-            objects[2].frameCount++;
-        }
-    }
-    if (objects[3] != undefined) {
-        if (objects[3].frameCount < objects[3].frames) {
-            objects[3].geometry.position.x += ((objects[3].endpos[0] - objects[3].startpos[0]) / objects[3].frames);
-            objects[3].geometry.position.y += ((objects[3].endpos[1] - objects[3].startpos[1]) / objects[3].frames);
-            objects[3].geometry.position.z += ((objects[3].endpos[2] - objects[3].startpos[2]) / objects[3].frames);
-            //console.log(objects[3].geometry.position);
-            objects[3].frameCount++;
-
-        }
-    }
-
-    //bulbLight.power = 100;//bulbLuminousPowers[ params.bulbPower ];
-    //bulbMat.emissiveIntensity = 1000;// bulbLight.intensity / Math.pow( 0.02, 2.0 ); // convert from intensity to irradiance at bulb surface
-
-    //hemiLight.intensity = 5;//hemiLuminousIrradiances[ params.hemiIrradiance ];
-    //var time = Date.now() * 0.0005;
-    var delta = clock.getDelta();
-
-    //bulbLight.position.y = Math.cos( time ) * 0.75 + 1.25;
+    
 
     renderer.render(scene, camera);
 
