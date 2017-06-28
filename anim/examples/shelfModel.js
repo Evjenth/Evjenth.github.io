@@ -41,7 +41,7 @@ function nextPiece() {
 			break;
 
 		case 8:
-			myLoad(pieceCount,'side_left',[0,0,3*Math.PI / 2],[-1,3,0],[0,3,0],50,true,true);
+			myLoad(pieceCount,'side_left',[0,0,3*Math.PI / 2],[0,4,0.07],[0,3,0.07],50,true,true,[0,3,0],50);
 			document.getElementById("instruction").innerHTML = "3. Attach the side plates. Align the bigger holes at the bottom to the latch screws and push in the plate. Push to plate so that the screws locks into the plate with an audible *click*";
 			break;
 		case 9:
@@ -50,6 +50,7 @@ function nextPiece() {
 			break;
 		case 10:
 			myLoad(pieceCount,'back_plate',[Math.PI/2,0,0],[0.13,3,-2.9],[0.13,0.13,-2.9],50,true,true);
+			document.getElementById("instruction").innerHTML = "4. Slide the backplate down the traces. The rough side should be turned towards the back"
 			break;
 		case 11:
 			myLoad(pieceCount,'top',[Math.PI,Math.PI,0],[3,4,0],[3,3.18,0],50,true,true);
@@ -61,7 +62,8 @@ function nextPiece() {
 	
 }
 
-function myLoad(piece,name,rotations,startPos,endPos,mFrames,castS, receiveS){
+function myLoad(piece,name,rotations,startPos,endPos,mFrames,castS, receiveS,interMediate,extraF){
+				
 				var mtlLoader = new THREE.MTLLoader();
 				mtlLoader.setPath('models/obj/');
 				mtlLoader.load(name + '.mtl', function(materials){
@@ -74,8 +76,12 @@ function myLoad(piece,name,rotations,startPos,endPos,mFrames,castS, receiveS){
 						object.scale.set(scale,scale,scale);
 						object.rotation.set(rotations[0],rotations[1],rotations[2]);
 						object.position.set(startPos[0],startPos[1],startPos[2]);
-						objects[piece-1] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [endPos[0],endPos[1],endPos[2]], frames: mFrames, frameCount: 0 };
+						objects[piece-1] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [endPos[0],endPos[1],endPos[2]], frames: mFrames, frameCount: 0 ,secondFrames:0};
 						scene.add(objects[piece-1].geometry);
+						if(interMediate != undefined){
+							objects[piece-1].interPos = interMediate;
+							objects[piece-1].secondFrames = extraF;
+						}
 					});
 				});
 			}

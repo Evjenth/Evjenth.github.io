@@ -140,22 +140,16 @@ function init() {
 }
 
 function onWindowResize() {
-
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-
     renderer.setSize(window.innerWidth, window.innerHeight);
-
 }
 
 //
 
 function animate() {
-
     requestAnimationFrame(animate);
-
     render();
-
 }
 
 
@@ -163,13 +157,22 @@ function render() {
     
     for (var a = 0; a < objects.length ; a++){
         if (objects[a] != undefined) {
-            if (objects[a].frameCount < objects[a].frames) {
+            var frames = objects[a].frames;
+            if (objects[a].frameCount < frames) {
                 objects[a].geometry.position.set(
-                    objects[a].geometry.position.x + ((objects[a].endpos[0] - objects[a].startpos[0]) / objects[a].frames),
-                    objects[a].geometry.position.y + ((objects[a].endpos[1] - objects[a].startpos[1]) / objects[a].frames),
-                    objects[a].geometry.position.z + ((objects[a].endpos[2] - objects[a].startpos[2]) / objects[a].frames));
-
+                    objects[a].geometry.position.x + ((objects[a].endpos[0] - objects[a].startpos[0]) / frames),
+                    objects[a].geometry.position.y + ((objects[a].endpos[1] - objects[a].startpos[1]) / frames),
+                    objects[a].geometry.position.z + ((objects[a].endpos[2] - objects[a].startpos[2]) / frames));
                 objects[a].frameCount++;
+            }else if(objects[a].frameCount < frames + objects[a].secondFrames){
+                objects[a].geometry.position.set(
+                    objects[a].geometry.position.x + ((objects[a].interPos[0] - objects[a].endpos[0]) / frames),
+                    objects[a].geometry.position.y + ((objects[a].interPos[1] - objects[a].endpos[1]) / frames),
+                    objects[a].geometry.position.z + ((objects[a].interPos[2] - objects[a].endpos[2]) / frames)
+                );
+                objects[a].frameCount++;
+                console.log("fire");
+
             }
         }
     }
