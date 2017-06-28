@@ -45,7 +45,7 @@ function nextPiece() {
 			document.getElementById("instruction").innerHTML = "3. Attach the side plates. Align the bigger holes at the bottom to the latch screws and push in the plate. Push to plate so that the screws locks into the plate with an audible *click*";
 			break;
 		case 9:
-			myLoad(pieceCount,'side_right',[Math.PI,0,Math.PI / 2],[4,3,0],[3,3,0],50,true,true);
+			myLoad(pieceCount,'side_right',[Math.PI,0,Math.PI / 2],[3,4,0.07],[3,3,0.07],50,true,true,[3,3,0],50);
 
 			break;
 		case 10:
@@ -53,8 +53,73 @@ function nextPiece() {
 			document.getElementById("instruction").innerHTML = "4. Slide the backplate down the traces. The rough side should be turned towards the back"
 			break;
 		case 11:
-			myLoad(pieceCount,'top',[Math.PI,Math.PI,0],[3,4,0],[3,3.18,0],50,true,true);
+			myLoad(pieceCount,'top',[0,0,0],[6,0,0],[6,0,0],0,true,true);
+			document.getElementById("instruction").innerHTML = "5. Place the top plate on the floor. Insert the screws (x4) to the plate. Insert the wood plugs on top of the side plates (x4)";
 			break;
+		case 12:
+			//myLoad(pieceCount,'long_screw',[Math.PI / 2,0,0],[9,100,-30],[9,46,-30],100,true,true,[0,0,0],0);
+			//myLoad(pieceCount+1,'long_screw',[(Math.PI / 2),0,0],[9,100,-90],[9,46,-90],100,true,true,[0,0,0],0,2);
+			var name = 'long_screw';
+			var rotations = [Math.PI / 2,0,0];
+			var startPos = [9,100,-30];
+			var endPos = [9,46,-30];
+			var piece = pieceCount;
+			var mFrames = 100;
+			var screws = [];
+			var mtlLoader = new THREE.MTLLoader();
+				mtlLoader.setPath('models/obj/');
+				mtlLoader.load(name + '.mtl', function(materials){
+					materials.preload();
+					var objLoader = new THREE.OBJLoader();
+					objLoader.setMaterials(materials);
+					objLoader.setPath('models/obj/');
+					objLoader.load(name + '.obj',function(object){
+						 object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; receiveShadow =true; } });
+						
+						//object.scale.set(scale,scale,scale);
+						
+						object.rotation.set(rotations[0],rotations[1],rotations[2]);
+						object.position.set(startPos[0],startPos[1],startPos[2]);
+						//objects[piece-1] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [endPos[0],endPos[1],endPos[2]], frames: mFrames, frameCount: 0 ,secondFrames:0};
+						//objects[piece-2].geometry.add(objects[piece-1].geometry);
+
+						var screws = [];
+						for(var a = 0 ; a < 4 ; a++){
+							screws[a] = object.clone();
+						}
+						screws[0].position.set(9,46,-30);
+						screws[1].position.set(9,46,-250);
+						screws[2].position.set(291,46,-250);
+						screws[3].position.set(291,46,-30);
+
+						for(var a = 0 ; a < 4 ; a++){
+							objects[piece-2].geometry.add(screws[a]);
+						}
+						
+					});
+				});
+			break;
+		case 13:
+			var object = objects[10].geometry;
+			scene.remove(objects[10].geometry);
+			scene.add(object);
+			objects[pieceCount-1] = {geometry:object,startpos:[object.position.x,object.position.y,object.position.z],endpos:[6,4,0],frames:50,frameCount:0,secondFrames:0};
+			objects[pieceCount-1].startRotation = [0,0,0];
+			objects[pieceCount-1].endRotation = [-Math.PI,-Math.PI,0];
+			objects[pieceCount-1].interPos = [3,4,0];
+			objects[pieceCount-1].secondFrames = 50;
+			document.getElementById("instruction").innerHTML = "6. Place the top plate above the side plates. Align the back plate with the traces in the top plate";
+			break;
+		case 14:
+			objects[pieceCount-2].frameCount = 0;
+			objects[pieceCount-2].startPos = objects[pieceCount-2].endpos;
+			objects[pieceCount-2].endPos = objects[pieceCount-2].startPos;
+			objects[pieceCount-2].endpos[1] = -0.85;
+			delete objects[pieceCount-2].secondFrames;
+			delete objects[pieceCount-2].interPos;
+			delete objects[pieceCount-2].startRotation;
+			delete objects[pieceCount-2].endRotation;
+			document.getElementById("instruction").innerHTML = "7. Lower the top plate onto the wood plugs. Insert the anchors";
 		default:
 			pieceCount--;
 			break;
@@ -73,11 +138,15 @@ function myLoad(piece,name,rotations,startPos,endPos,mFrames,castS, receiveS,int
 					objLoader.setPath('models/obj/');
 					objLoader.load(name + '.obj',function(object){
 						 object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; receiveShadow =true; } });
+						
 						object.scale.set(scale,scale,scale);
+						
 						object.rotation.set(rotations[0],rotations[1],rotations[2]);
 						object.position.set(startPos[0],startPos[1],startPos[2]);
 						objects[piece-1] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [endPos[0],endPos[1],endPos[2]], frames: mFrames, frameCount: 0 ,secondFrames:0};
+						
 						scene.add(objects[piece-1].geometry);
+						
 						if(interMediate != undefined){
 							objects[piece-1].interPos = interMediate;
 							objects[piece-1].secondFrames = extraF;

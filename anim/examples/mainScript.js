@@ -15,8 +15,10 @@ function prevPiece() {
         pieceCount = 0;
         return;
     }
-    console.log(pieceCount);
+    if(objects[pieceCount] != undefined){
     scene.remove(objects[pieceCount].geometry);
+    }
+    
 }
 
 
@@ -163,6 +165,14 @@ function render() {
                     objects[a].geometry.position.x + ((objects[a].endpos[0] - objects[a].startpos[0]) / frames),
                     objects[a].geometry.position.y + ((objects[a].endpos[1] - objects[a].startpos[1]) / frames),
                     objects[a].geometry.position.z + ((objects[a].endpos[2] - objects[a].startpos[2]) / frames));
+
+                if(objects[a].startRotation != undefined){
+                    objects[a].geometry.rotation.set(
+                        objects[a].geometry.rotation.x + ((objects[a].endRotation[0]-objects[a].startRotation[0]) / frames),
+                        objects[a].geometry.rotation.y + ((objects[a].endRotation[1]-objects[a].startRotation[1]) / frames),
+                        objects[a].geometry.rotation.z + ((objects[a].endRotation[2]-objects[a].startRotation[2]) / frames)
+                        );
+                }
                 objects[a].frameCount++;
             }else if(objects[a].frameCount < frames + objects[a].secondFrames){
                 objects[a].geometry.position.set(
@@ -171,7 +181,7 @@ function render() {
                     objects[a].geometry.position.z + ((objects[a].interPos[2] - objects[a].endpos[2]) / frames)
                 );
                 objects[a].frameCount++;
-                console.log("fire");
+
 
             }
         }
