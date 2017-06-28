@@ -21,7 +21,9 @@ function nextPiece() {
                     objects[0] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 0, 0], frames: 0, frameCount: 0 };
                     objects[0].geometry.castShadow = true;
                     scene.add(objects[0].geometry);
-
+                    var text = "hello";
+                    var text2 = "HELLO";
+                    document.getElementById("instruction").innerHTML = "1. Place the bottom plate (id number #1441123) on the floor. The side with the traces should be turned upward. Use a carpet to prevent scratches"
 
                 });
 
@@ -48,6 +50,7 @@ function nextPiece() {
                     objects[1] = { geometry: object1, startpos: [object1.position.x, object1.position.y, object1.position.z], endpos: [0, 3, 0], frames: 50, frameCount: 0 };
                     objects[1].geometry.castShadow = true;
                     scene.add(objects[1].geometry);
+                    document.getElementById("instruction").innerHTML = "2. Attach the screws (x6) to the side of the bottom plate, and latch on the side plates";
                 });
             });
             break;

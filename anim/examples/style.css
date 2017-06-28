@@ -20,6 +20,20 @@ a {
     text-decoration: none;
 }
 
-    a:hover {
-        color: #0080ff;
-    }
+a:hover {
+    color: #0080ff;
+}
+
+#textbox{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 800px;
+    background: rgba(255,255,255,0.3);
+}
+
+#instruction{
+    margin: 20px;
+    color:rgb(255,255,255);
+}
