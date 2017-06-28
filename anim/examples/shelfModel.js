@@ -1,129 +1,81 @@
 // JavaScript source code
+var scale = 0.01;
 function nextPiece() {
-    pieceCount++;
-    switch (pieceCount) {
-        case 1:
-            var mtlLoader = new THREE.MTLLoader();
-            mtlLoader.setPath('models/obj/');
-            mtlLoader.load('bottom.mtl', function (materials) {
-                materials.preload();
-                var objLoader = new THREE.OBJLoader();
-                objLoader.setMaterials(materials);
-                objLoader.setPath('models/obj/');
-                objLoader.load('bottom.obj', function (object) {
-                    object.scale.x = 0.01;
-                    object.scale.y = 0.01;
-                    object.scale.z = 0.01;
-                    object.position.x = 0;
-                    object.position.y = 0;
-                    object.position.z = 0;
-                    object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.receiveShadow = true; } });
-                    objects[0] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 0, 0], frames: 0, frameCount: 0 };
-                    objects[0].geometry.castShadow = true;
-                    scene.add(objects[0].geometry);
-                    var text = "hello";
-                    var text2 = "HELLO";
-                    document.getElementById("instruction").innerHTML = "1. Place the bottom plate (id number #1441123) on the floor. The side with the traces should be turned upward. Use a carpet to prevent scratches"
+	pieceCount++;
+	switch (pieceCount) {
+		case 1:
+			var mtlLoader = new THREE.MTLLoader();
+			mtlLoader.setPath('models/obj/');
+			mtlLoader.load('bottom.mtl', function (materials) {
+				materials.preload();
+				var objLoader = new THREE.OBJLoader();
+				objLoader.setMaterials(materials);
+				objLoader.setPath('models/obj/');
+				objLoader.load('bottom.obj', function (object) {
+					object.scale.x = 0.01;
+					object.scale.y = 0.01;
+					object.scale.z = 0.01;
+					object.position.x = 0;
+					object.position.y = 0;
+					object.position.z = 0;
+					object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.receiveShadow = true; } });
+					objects[0] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 0, 0], frames: 0, frameCount: 0 };
+					objects[0].geometry.castShadow = true;
+					scene.add(objects[0].geometry);
+					document.getElementById("instruction").innerHTML = "1. Place the bottom plate (id number #1441123) on the floor. The side with the traces should be turned upward. Use a carpet to prevent scratches";
 
-                });
+				});
 
-            });
-            break;
-        case 2:
-            var mtlLoader = new THREE.MTLLoader();
-            mtlLoader.setPath('models/obj/');
-            mtlLoader.load('side_left.mtl', function (materials) {
-                materials.preload();
-                var objLoader = new THREE.OBJLoader();
-                objLoader.setMaterials(materials);
-                objLoader.setPath('models/obj/');
-                objLoader.load('side_left.obj', function (object1) {
-                    object1.rotation.z = 3 * Math.PI / 2;
-                    //object1.rotation.x = Math.PI;
-                    object1.scale.x = 0.01;
-                    object1.scale.y = 0.01;
-                    object1.scale.z = 0.01;
+			});
+			break;
 
-                    object1.position.x = -1;
-                    object1.position.y = 3;
-                    object1.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; node.receiveShadow = true; } });
-                    objects[1] = { geometry: object1, startpos: [object1.position.x, object1.position.y, object1.position.z], endpos: [0, 3, 0], frames: 50, frameCount: 0 };
-                    objects[1].geometry.castShadow = true;
-                    scene.add(objects[1].geometry);
-                    document.getElementById("instruction").innerHTML = "2. Attach the screws (x6) to the side of the bottom plate, and latch on the side plates";
-                });
-            });
-            break;
-        case 3:
-            var mtlLoader = new THREE.MTLLoader();
-            mtlLoader.setPath('models/obj/');
-            mtlLoader.load('side_right.mtl', function (materials) {
-                materials.preload();
-                var objLoader = new THREE.OBJLoader();
-                objLoader.setMaterials(materials);
-                objLoader.setPath('models/obj/');
-                objLoader.load('side_right.obj', function (object2) {
-                    object2.rotation.z = Math.PI / 2;
-                    object2.rotation.x = Math.PI;
-                    object2.scale.x = 0.01;
-                    object2.scale.y = 0.01;
-                    object2.scale.z = 0.01;
-                    object2.position.set(4, 3, 0);
-                    object2.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; receiveShadow = true; } });
-                    objects[2] = { geometry: object2, startpos: [object2.position.x, object2.position.y, object2.position.z], endpos: [3, 3, 0], frames: 50, frameCount: 0 };
-                    scene.add(objects[2].geometry);
+		case 2:
+			myLoad(2,'latch_screw', [0,0,Math.PI/4], [-1,1,-2.5],[0.12,0.07,-2.5],50,false,false);
+			myLoad(3,'latch_screw', [0,0,Math.PI/4], [-1,1,-1.6],[0.12,0.07,-1.6],50,false,false);
+			myLoad(4,'latch_screw', [0,0,Math.PI/4], [-1,1,-0.7],[0.12,0.07,-0.7],50,false,false);
+			myLoad(5,'latch_screw', [0,0,-Math.PI/4], [4,1,-2.5],[2.88,0.07,-2.5],50,false,false);
+			myLoad(6,'latch_screw', [0,0,-Math.PI/4], [4,1,-1.6],[2.88,0.07,-1.6],50,false,false);
+			myLoad(7,'latch_screw', [0,0,-Math.PI/4], [4,1,-0.7],[2.88,0.07,-0.7],50,false,false);
+			document.getElementById("instruction").innerHTML = "2. Insert the latch screws (x6)."
+			pieceCount = 7;
+			break;
 
-                });
-            });
-            break;
-        case 4:
-            var mtlLoader = new THREE.MTLLoader();
-            mtlLoader.setPath('models/obj/');
-            mtlLoader.load('back_plate.mtl', function (materials) {
-                materials.preload();
-                var objLoader = new THREE.OBJLoader();
-                objLoader.setMaterials(materials);
-                objLoader.setPath('models/obj/');
-                objLoader.load('back_plate.obj', function (object) {
-                    object.rotation.x = Math.PI / 2;
-                    object.scale.x = 0.01;
-                    object.scale.y = 0.01;
-                    object.scale.z = 0.01;
-                    object.position.set(0.13,3, -2.9);
-                    object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; receiveShadow = true; } });
-                    //object.position.y = 1.45;
-                    objects[3] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0.13,0.13,-2.9], frames: 50, frameCount: 0 };
-                    objects[0].geometry.castShadow = true;
-                    objects[0].geometry.receiveShadow = true;
-                    objects[0].needsUpdate = true;
-                    scene.add(objects[3].geometry);
-                });
-            });
-            break;
-        case 5:
-            var mtlLoader = new THREE.MTLLoader();
-            mtlLoader.setPath('models/obj/');
-            mtlLoader.load('top.mtl', function (materials) {
-                materials.preload();
-                var objLoader = new THREE.OBJLoader();
-                objLoader.setMaterials(materials);
-                objLoader.setPath('models/obj/');
-                objLoader.load('top.obj', function (object) {
-                    object.rotation.x = Math.PI;
-                    object.rotation.y = Math.PI;
-                    object.scale.x = 0.01;
-                    object.scale.y = 0.01;
-                    object.scale.z = 0.01;
-                    object.position.set(3, 4, 0);
-                    object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; receiveShadow = true; } });
-                    //object.position.y = 1.45;
-                    objects[4] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [3,3.18,0], frames: 50, frameCount: 0 };
-                    objects[0].geometry.castShadow = true;
-                    objects[0].geometry.receiveShadow = true;
-                    objects[0].needsUpdate = true;
-                    scene.add(objects[4].geometry);
-                });
-            });
-            break;
-    }
+		case 8:
+			myLoad(pieceCount,'side_left',[0,0,3*Math.PI / 2],[-1,3,0],[0,3,0],50,true,true);
+			document.getElementById("instruction").innerHTML = "3. Attach the side plates. Align the bigger holes at the bottom to the latch screws and push in the plate. Push to plate so that the screws locks into the plate with an audible *click*";
+			break;
+		case 9:
+			myLoad(pieceCount,'side_right',[Math.PI,0,Math.PI / 2],[4,3,0],[3,3,0],50,true,true);
+
+			break;
+		case 10:
+			myLoad(pieceCount,'back_plate',[Math.PI/2,0,0],[0.13,3,-2.9],[0.13,0.13,-2.9],50,true,true);
+			break;
+		case 11:
+			myLoad(pieceCount,'top',[Math.PI,Math.PI,0],[3,4,0],[3,3.18,0],50,true,true);
+			break;
+		default:
+			pieceCount--;
+			break;
+	}
+	
 }
+
+function myLoad(piece,name,rotations,startPos,endPos,mFrames,castS, receiveS){
+				var mtlLoader = new THREE.MTLLoader();
+				mtlLoader.setPath('models/obj/');
+				mtlLoader.load(name + '.mtl', function(materials){
+					materials.preload();
+					var objLoader = new THREE.OBJLoader();
+					objLoader.setMaterials(materials);
+					objLoader.setPath('models/obj/');
+					objLoader.load(name + '.obj',function(object){
+						 object.traverse(function (node) { if (node instanceof THREE.Mesh) { node.castShadow = true; receiveShadow =true; } });
+						object.scale.set(scale,scale,scale);
+						object.rotation.set(rotations[0],rotations[1],rotations[2]);
+						object.position.set(startPos[0],startPos[1],startPos[2]);
+						objects[piece-1] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [endPos[0],endPos[1],endPos[2]], frames: mFrames, frameCount: 0 };
+						scene.add(objects[piece-1].geometry);
+					});
+				});
+			}

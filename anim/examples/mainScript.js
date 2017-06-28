@@ -15,6 +15,7 @@ function prevPiece() {
         pieceCount = 0;
         return;
     }
+    console.log(pieceCount);
     scene.remove(objects[pieceCount].geometry);
 }
 
