@@ -22,7 +22,7 @@ function nextPiece() {
 					objects[0] = { geometry: object, startpos: [object.position.x, object.position.y, object.position.z], endpos: [0, 0, 0], frames: 0, frameCount: 0 };
 					objects[0].geometry.castShadow = true;
 					scene.add(objects[0].geometry);
-					document.getElementById("instruction").innerHTML = "1. Place the bottom plate (id number #1441123) on the floor. The side with the traces should be turned upward. Use a carpet to prevent scratches";
+					document.getElementById("instruction").innerHTML = instructions[0];
 
 				});
 
@@ -36,13 +36,13 @@ function nextPiece() {
 			myLoad(5,'latch_screw', [0,0,-Math.PI/4], [4,1,-2.5],[2.88,0.07,-2.5],50,false,false);
 			myLoad(6,'latch_screw', [0,0,-Math.PI/4], [4,1,-1.6],[2.88,0.07,-1.6],50,false,false);
 			myLoad(7,'latch_screw', [0,0,-Math.PI/4], [4,1,-0.7],[2.88,0.07,-0.7],50,false,false);
-			document.getElementById("instruction").innerHTML = "2. Insert the latch screws (x6)."
+			document.getElementById("instruction").innerHTML = instructions[1];
 			pieceCount = 7;
 			break;
 
 		case 8:
 			myLoad(pieceCount,'side_left',[0,0,3*Math.PI / 2],[0,4,0.07],[0,3,0.07],50,true,true,[0,3,0],50);
-			document.getElementById("instruction").innerHTML = "3. Attach the side plates. Align the bigger holes at the bottom to the latch screws and push in the plate. Push to plate so that the screws locks into the plate with an audible *click*";
+			document.getElementById("instruction").innerHTML = instructions[2];
 			break;
 		case 9:
 			myLoad(pieceCount,'side_right',[Math.PI,0,Math.PI / 2],[3,4,0.07],[3,3,0.07],50,true,true,[3,3,0],50);
@@ -50,11 +50,11 @@ function nextPiece() {
 			break;
 		case 10:
 			myLoad(pieceCount,'back_plate',[Math.PI/2,0,0],[0.13,3,-2.9],[0.13,0.13,-2.9],50,true,true);
-			document.getElementById("instruction").innerHTML = "4. Slide the backplate down the traces. The rough side should be turned towards the back"
+			document.getElementById("instruction").innerHTML = instructions[3];
 			break;
 		case 11:
 			myLoad(pieceCount,'top',[0,0,0],[6,0,0],[6,0,0],0,true,true);
-			document.getElementById("instruction").innerHTML = "5. Place the top plate on the floor. Insert the screws (x4) to the plate. Insert the wood plugs on top of the side plates (x4)";
+			document.getElementById("instruction").innerHTML = instructions[4];
 			break;
 		case 12:
 			//myLoad(pieceCount,'long_screw',[Math.PI / 2,0,0],[9,100,-30],[9,46,-30],100,true,true,[0,0,0],0);
@@ -108,7 +108,7 @@ function nextPiece() {
 			objects[pieceCount-1].endRotation = [-Math.PI,-Math.PI,0];
 			objects[pieceCount-1].interPos = [3,4,0];
 			objects[pieceCount-1].secondFrames = 50;
-			document.getElementById("instruction").innerHTML = "6. Place the top plate above the side plates. Align the back plate with the traces in the top plate";
+			document.getElementById("instruction").innerHTML = instructions[5];
 			break;
 		case 14:
 			objects[pieceCount-2].frameCount = 0;
@@ -119,7 +119,8 @@ function nextPiece() {
 			delete objects[pieceCount-2].interPos;
 			delete objects[pieceCount-2].startRotation;
 			delete objects[pieceCount-2].endRotation;
-			document.getElementById("instruction").innerHTML = "7. Lower the top plate onto the wood plugs. Insert the anchors";
+			document.getElementById("instruction").innerHTML = instructions[6];
+			break;	
 		default:
 			pieceCount--;
 			break;

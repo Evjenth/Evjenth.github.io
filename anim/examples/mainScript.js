@@ -1,6 +1,16 @@
 document.onkeydown = function (key) { reactKey(key); }
 var pieceCount = 0;
 var objects = [];
+var instructions = [];
+instructions[0] = "1. Place the bottom plate (id number #1441123) on the floor. The side with the traces should be turned upward. Use a carpet to prevent scratches";
+instructions[1] = "2. Insert the latch screws (x6).";
+instructions[2] = "3. Attach the side plates. Align the bigger holes at the bottom to the latch screws and push in the plate. Push to plate so that the screws locks into the plate with an audible *click*";
+instructions[3] = "4. Slide the backplate down the traces. The rough side should be turned towards the back";
+instructions[4] = "5. Place the top plate on the floor. Insert the screws (x4) to the plate. Insert the wood plugs on top of the side plates (x4)";
+instructions[5] = "6. Place the top plate above the side plates. Align the back plate with the traces in the top plate";
+instructions[6] = "7. Lower the top plate onto the wood plugs. Insert the anchors";
+		
+
 function reactKey(evt) {
     if (evt.keyCode == 68 || evt.keyCode == 39) {
         nextPiece();
@@ -17,8 +27,23 @@ function prevPiece() {
     }
     if(objects[pieceCount] != undefined){
     scene.remove(objects[pieceCount].geometry);
+}
+if(pieceCount == 6){
+    for(var a = 1 ; a < 6 ; a++){
+        scene.remove(objects[a].geometry);
     }
-    
+    pieceCount = 1;
+}else if(pieceCount == 11 || pieceCount == 12 || pieceCount == 13){
+    scene.remove(objects[10].geometry);
+    if(objects[11] != undefined){
+        scene.remove(objects[11].geometry);
+    }
+
+    pieceCount = 10;
+}
+console.log(pieceCount);
+document.getElementById("instruction").innerHTML = "";
+
 }
 
 
