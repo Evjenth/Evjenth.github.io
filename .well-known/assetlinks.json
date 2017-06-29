@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.evjenth.anstr.theory",
+    "sha256_cert_fingerprints":
+    ["58:F6:30:DB:BB:E3:C5:B5:EB:C6:DF:10:C3:F2:A7:F1:55:66:61:A5:A6:C5:CD:C1:88:AD:2F:BC:22:5D:86:0F"]
+  }
+}]
