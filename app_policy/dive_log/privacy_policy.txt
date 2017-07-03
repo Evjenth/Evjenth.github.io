@@ -1,0 +1,20 @@
+Privacy policy for Dive Log
+This documentet is updated 2017-07-03
+
+This is a privacy policy for the application "Dive Log" ("com.apps.evjenth.divelog"), hereby referenced to as "The application".
+
+User Data:
+Position data is used in the log, in order to map out the dive sites that the user logs in the application. When selection location in the log, the users location 
+can be sent along to the Google Maps Android API to improve the user interface of the map. The location of the user can also be used improve the relevancy of ads. 
+User location is not stored in the app, or other places, but coordinates that the user sets to a log, will be stored as a part of the log book. Stored coordinates 
+will only be accessed locally from the user.
+
+The application does not store any personal identifiable information, but information that the user enters in the loog book (coordinates, places, dates and personal notes)
+are stored locally in the application.
+
+If bugs or errors are found in the application, the user is adviced to contact the developer, so that those errors can be corrected as soon as possible.
+
+Best regards,
+Andreas Evjenth
+Evjenth Apps
+anstroen@gmail.com
