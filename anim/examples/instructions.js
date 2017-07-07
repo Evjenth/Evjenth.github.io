@@ -1,15 +1,9 @@
-
 function piece(evt) {
-    var val = 0;
-    if (evt.keyCode == 68 || evt.keyCode == 39) {
-        val = 1;
-    } else if (evt.keyCode == 65 || evt.keyCode == 37) {
-        val = -1;
-    }else{
+    var val = evt.keyCode == 68  ? 1 : evt.keyCode == 65 ? -1 : 0;
+    if(val == 0 || count + val > 17 || count + val < 0){
         return;
     }
     count += val;
-    console.log(count);
     switch (count) {
         case 0:
             furObjects[0].goalPos = [-350, 0, -50];
@@ -96,8 +90,5 @@ function piece(evt) {
             furObjects[4].goalPos = [-50, 318, -500];
             writeText("Lower the top plate down on the shelf.")
             break;
-
     }
 }
-
-

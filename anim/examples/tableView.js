@@ -2,31 +2,11 @@ var holder = new THREE.Object3D();
 var furObjects = [];
 holder.scale.set(0.01, 0.01, 0.01);
 holder.position.set(0, 0, 5);
-
-for (var a = 0; a < 5; a++) {
-    switch (a) {
-        case 0:
-            load('bottom', [-350, 0, -50],a);
-            break;
-        case 1:
-            load('side_left', [0, 0, -50],a);
-            break;
-        case 2:
-            load('side_right', [-350, 0, 0],a);
-            break;
-        case 3:
-            load('back_plate', [-675, 0, 100],a);
-            break;
-        case 4:
-            load('top', [0, 0, 300],a);
-            break;
-    }
-}
-
-
-
-
-
+load('bottom', [-350, 0, -50],0);
+load('side_left', [0, 0, -50],1);
+load('side_right', [-350, 0, 0],2);
+load('back_plate', [-675, 0, 100],3);
+load('top', [0, 0, 300],4);
 
 function load(name, pos,ind) {
     var path = 'models/obj/';
