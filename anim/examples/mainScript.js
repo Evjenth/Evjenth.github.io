@@ -9,7 +9,9 @@ instructions[3] = "4. Slide the backplate down the traces. The rough side should
 instructions[4] = "5. Place the top plate on the floor. Insert the screws (x4) to the plate. Insert the wood plugs on top of the side plates (x4)";
 instructions[5] = "6. Place the top plate above the side plates. Align the back plate with the traces in the top plate";
 instructions[6] = "7. Lower the top plate onto the wood plugs. Insert the anchors";
-		
+var clock = new  THREE.Clock(true);
+
+
 
 function reactKey(evt) {
     if (evt.keyCode == 68 || evt.keyCode == 39) {
@@ -94,6 +96,8 @@ function init() {
     spotlight1.distance = 40;
     spotlight.castShadow = true;
     scene.add(spotlight1);
+
+    scene.add(holder);
 
 
   
@@ -181,7 +185,7 @@ function animate() {
 
 
 function render() {
-    
+
     for (var a = 0; a < objects.length ; a++){
         if (objects[a] != undefined) {
             var frames = objects[a].frames;
