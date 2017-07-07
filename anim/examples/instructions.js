@@ -9,11 +9,7 @@ function piece(evt) {
         return;
     }
     count += val;
-    if(count < 0){
-        count = 0;
-    }else if(count > 17){
-        count = 17;
-    }
+    console.log(count);
     switch (count) {
         case 0:
             furObjects[0].goalPos = [-350, 0, -50];
