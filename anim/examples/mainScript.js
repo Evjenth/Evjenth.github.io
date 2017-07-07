@@ -34,6 +34,7 @@ function init() {
     scene.add(spotlight1);
     scene.add(holder);
     scene.add(floorMesh);
+    scene.add(bulletin);
 
     renderer = new THREE.WebGLRenderer({ antialis: true });
     renderer.physicallyCorrectLights = true;
