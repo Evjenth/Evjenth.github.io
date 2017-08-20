@@ -2,21 +2,26 @@
 
 if (!Detector.webgl) Detector.addGetWebGLMessage();
 var angle = 0;
+var stats;
 var x_location = 0;
-var ang_increment = 0.05;
+var ang_increment = 0.1;
 var falling = false;
+var lost = false;
 var clock = new THREE.Clock(true);
 document.onkeydown = function (key) { reactKey(key); }
 function reactKey(key) {
+    console.log(key.keyCode);
     switch (key.keyCode) {
         case 65:
-            angle -= ang_increment;
+            //angle -= ang_increment;
+            gameObject.geometry.position.z -= 0.05;
             if (angle < 0) {
                 angle = Math.PI * 2;
             }
             break;
         case 68:
-            angle += ang_increment;
+            //angle += ang_increment;
+            gameObject.geometry.position.z += 0.05;
             if (angle > Math.PI * 2) {
                 angle = 0;
             }
@@ -25,6 +30,20 @@ function reactKey(key) {
             if (gameObject.verticalVelocity == 0) {
                 gameObject.verticalVelocity = 4;
                 clock.getDelta();
+            }
+            break;
+        case 82:
+            if (lost) {
+                x_location = 0;
+                for (var a = 0; a < boxes.length; a++) {
+                    scene.remove(boxes[a]);
+                }
+                boxes = [];
+                requestAnimationFrame(animate);
+                gameObject.geometry.position.x = 0;
+                gameObject.geometry.position.z = 0;
+                gameObject.horizontalVelocity = startVelocity;
+                lost = false;
             }
             break;
     }
@@ -36,7 +55,10 @@ init();
 animate();
 function init() {
     container = document.createElement('div');
+
     document.body.appendChild(container);
+    stats = new Stats();
+    container.appendChild(stats.dom);
     camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 15);
     camera.position.set(3, 1, 3);
     cameraTarget = new THREE.Vector3(0, -0.25, 0);
@@ -54,10 +76,10 @@ function init() {
 
 
 
-    scene.add(gameObject.geometry);  
+    scene.add(gameObject.geometry);
 
     // Lights
-    scene.add(new THREE.HemisphereLight(0x443333,2));
+    scene.add(new THREE.HemisphereLight(0x443333, 2));
 
     // renderer
     renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -78,11 +100,30 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function animate() {
-    requestAnimationFrame(animate);
+    if (!lost) {
+        requestAnimationFrame(animate);
+    }
+    stats.update();
     render();
 }
+
+function hasLost() {
+    for (var a = 0; a < boxes.length; a++) {
+        if (Math.abs(gameObject.geometry.position.z - boxes[a].position.z) < boxSize
+            && Math.abs(gameObject.geometry.position.x - boxes[a].position.x) < boxSize
+            && gameObject.geometry.position.y < gameObject.ground + boxSize) {
+            return true;
+        }
+
+    }
+    return false;
+}
 function render() {
-   
+    if (hasLost()) {
+        gameObject.horizontalVelocity = 0;
+        lost = true;
+        return;
+    }
     gameObject.geometry.position.x += (Math.cos(angle) * gameObject.horizontalVelocity);
     gameObject.geometry.position.z += (Math.sin(angle) * gameObject.horizontalVelocity);
     if (gameObject.geometry.position.x - 1 > x_location) {
@@ -93,7 +134,8 @@ function render() {
         }
     }
 
-    if (Math.abs(gameObject.geometry.position.z) > (1+gameObject.radius/2)) {
+
+    if (Math.abs(gameObject.geometry.position.z) > (1 + gameObject.radius / 2)) {
         falling = true;
     } else {
         falling = false;
@@ -109,12 +151,7 @@ function render() {
     }
 
     cameraTarget = new THREE.Vector3(gameObject.geometry.position.x, gameObject.geometry.position.y, gameObject.geometry.position.z);
-    camera.position.x = gameObject.geometry.position.x - Math.cos(angle);
-    camera.position.z = gameObject.geometry.position.z - Math.sin(angle);
-    camera.position.y = gameObject.geometry.position.y + 0.5;
-
-
-    //camera.position.z = Math.sin(angle) * 3;
+    camera.position.set(gameObject.geometry.position.x - Math.cos(angle), gameObject.geometry.position.y + 0.5, gameObject.geometry.position.z - Math.sin(angle));
     camera.lookAt(cameraTarget);
     renderer.render(scene, camera);
 }
