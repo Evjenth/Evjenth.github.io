@@ -22,7 +22,7 @@ function init() {
     var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
     var wireframe = new THREE.LineSegments(geo, mat);
     mesh.add(wireframe);
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({ antialis: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
