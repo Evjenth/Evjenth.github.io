@@ -8,14 +8,20 @@ function init() {
     var light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
     scene.add(light);
     var geometry = new THREE.SphereGeometry(.5, 10, 10);
-    var geo = new THREE.EdgesGeometry(geometry); // or WireframeGeometry( geometry )
+    var material = new THREE.MeshPhongMaterial({
+        color: 0xff0000,
+        polygonOffset: true,
+        polygonOffsetFactor: 1, // positive value pushes polygon further away
+        polygonOffsetUnits: 1
+    });
+    var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh)
 
+    // wireframe
+    var geo = new THREE.EdgesGeometry(mesh.geometry); // or WireframeGeometry
     var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
-
     var wireframe = new THREE.LineSegments(geo, mat);
-    scene.add(wireframe);
-    scene.add(wireframe);
-
+    mesh.add(wireframe);
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
