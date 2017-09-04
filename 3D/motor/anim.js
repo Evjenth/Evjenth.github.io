@@ -15,7 +15,7 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    var controls = new THREE.orbitControls(camera, renderer.domElement);
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 0, 0);
     camera.position.set(2, 2, 0);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
