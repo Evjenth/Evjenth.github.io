@@ -18,6 +18,7 @@ function init() {
     var controls = new THREE.orbitControls(camera, renderer.domElement);
     controls.target.set(0, 0, 0);
     camera.position.set(2, 2, 0);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
     renderer.render(scene, camera);
     animate();
 }
