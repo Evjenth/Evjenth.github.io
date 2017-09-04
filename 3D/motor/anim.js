@@ -7,7 +7,14 @@ function init() {
     scene = new THREE.Scene();
     var light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
     scene.add(light);
-    var geometry = new THREE.SphereGeometry(1, 10, 10);
+    var geometry = new THREE.SphereGeometry(.5, 10, 10);
+    var geo = new THREE.EdgesGeometry(geometry); // or WireframeGeometry( geometry )
+
+    var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
+
+    var wireframe = new THREE.LineSegments(geo, mat);
+    scene.add(wireframe);
+    scene.add(wireframe);
     var material = new THREE.MeshBasicMaterial({ color: 0x2222ff });
     var sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
