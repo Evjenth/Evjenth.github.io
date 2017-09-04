@@ -7,6 +7,10 @@ function init() {
     scene = new THREE.Scene();
     var light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
     scene.add(light);
+    var geometry = new THREE.SphereGeometry(1, 10, 10);
+    var material = new THREE.MeshBasicMaterial({ color: 0x2222ff });
+    var sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
