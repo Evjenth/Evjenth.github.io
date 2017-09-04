@@ -15,9 +15,7 @@ function init() {
     var wireframe = new THREE.LineSegments(geo, mat);
     scene.add(wireframe);
     scene.add(wireframe);
-    var material = new THREE.MeshBasicMaterial({ color: 0x2222ff });
-    var sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
+
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
