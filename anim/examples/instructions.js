@@ -1,5 +1,12 @@
 function piece(evt) {
-    var val = evt.keyCode == 68  ? 1 : evt.keyCode == 65 ? -1 : 0;
+    var val;
+    if (evt == -1) {
+        val = -1;
+    } else if (evt == 1) {
+        val = 1;
+    } else {
+        val = evt.keyCode == 68 ? 1 : evt.keyCode == 65 ? -1 : 0;
+    }
     if(val == 0 || count + val > 17 || count + val < 0){
         return;
     }

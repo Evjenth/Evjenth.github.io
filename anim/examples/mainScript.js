@@ -2,6 +2,14 @@ document.onkeydown = function (key) { reactKey(key); }
 function reactKey(key) {
     piece(key);
 }
+
+function prev() {
+    piece(-1);
+}
+
+function next() {
+    piece(1);
+}
 var count = 0;
 var count_flag = 0;
 
