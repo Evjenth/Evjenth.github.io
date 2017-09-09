@@ -3,11 +3,11 @@ function reactKey(key) {
     piece(key);
 }
 var count = 0;
+var count_flag = 0;
 
-if (!Detector.webgl) Detector.addGetWebGLMessage();
 
 var camera, scene, renderer,
-    object, loader, stats;
+    object, loader;
 
 
 function writeText(message) {
@@ -20,21 +20,22 @@ init();
 animate();
 
 function init() {
-
     var container = document.getElementById('container');
 
-    stats = new Stats();
-    container.appendChild(stats.dom);
-
-    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
+    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
     scene = new THREE.Scene();
-
+    scene.background = new THREE.Color(0xffffff);
+    var ambLight = new THREE.AmbientLight(0x404040,20); // soft white light
+    scene.add(ambLight);
+    scene.add(floorMesh);
     scene.add(hemiLight);
     scene.add(spotlight);
     scene.add(spotlight1);
     scene.add(holder);
-    scene.add(floorMesh);
-    scene.add(bulletin);
+    scene.add(walls[0]);
+    scene.add(walls[1]);
+    scene.add(walls[2]);
+    scene.add(walls[3]);
 
     renderer = new THREE.WebGLRenderer({ antialis: true });
     renderer.physicallyCorrectLights = true;
@@ -49,10 +50,11 @@ function init() {
 
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 0, 0);
-    camera.position.set(0, 7, 12);
+    camera.position.set(0, 10, 20);
     controls.update();
     camera.lookAt(new THREE.Vector3(0, 0, 0));
     window.addEventListener('resize', onWindowResize, false);
+    renderer.render(scene, camera);
 }
 
 function onWindowResize() {
@@ -63,7 +65,12 @@ function onWindowResize() {
 
 function animate() {
     requestAnimationFrame(animate);
-    render();
+    if (count_flag != count) {
+        render();
+    }
+    
+    renderer.render(scene, camera);
+    
 }
 
 function render() {
@@ -82,18 +89,19 @@ function render() {
             var nPos = [];
             var nRot = [];
             for (var c = 0; c < 3; c++) {
-                nPos[c] = pos[c] + 2 * Math.sign(goalPos[c] - pos[c]);
+                nPos[c] = pos[c] + 10 * Math.sign(goalPos[c] - pos[c]);
+                if (Math.abs(goalPos[c] - pos[c]) < 10)
+                    nPos[c] = goalPos[c];
                 var diffRot = Math.abs(goalRot[c] - rot[c]);
-                if (diffRot < 0.05) {
+                if (diffRot < 0.2) {
                     nRot[c] = goalRot[c];
                 } else {
-                    nRot[c] = rot[c] + Math.sign((goalRot[c] - rot[c])) / 50;
+                    nRot[c] = rot[c] + Math.sign((goalRot[c] - rot[c])) / 10;
                 }
             }
             furObjects[a].setPos(nPos);
             furObjects[a].setRot(nRot);
         }
     }
-    renderer.render(scene, camera);
-    stats.update();
+    
 }

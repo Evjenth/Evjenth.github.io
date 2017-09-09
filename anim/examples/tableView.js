@@ -1,4 +1,5 @@
 var holder = new THREE.Object3D();
+
 var furObjects = [];
 holder.scale.set(0.01, 0.01, 0.01);
 holder.position.set(0, 0, 5);
@@ -6,7 +7,9 @@ load('bottom', [-350, 0, -50],0);
 load('side_left', [0, 0, -50],1);
 load('side_right', [-350, 0, 0],2);
 load('back_plate', [-675, 0, 100],3);
-load('top', [0, 0, 300],4);
+load('top', [0, 0, 300], 4);
+holder.matrixAutoUpdate = false;
+holder.updateMatrix();
 
 function load(name, pos,ind) {
     var path = 'models/obj/';
