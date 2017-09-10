@@ -36,8 +36,8 @@ a:hover {
     position: fixed;
     top: 0;
     right: 0;
-    width: 400px;
-    height: 100px;
+    width: 20%;
+    height: 30%;
     background: rgba(255,255,255,0.3);
 }
 
