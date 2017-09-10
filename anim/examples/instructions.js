@@ -7,7 +7,7 @@ function piece(evt) {
     } else {
         val = evt.keyCode == 68 ? 1 : evt.keyCode == 65 ? -1 : 0;
     }
-    if(val == 0 || count + val > 17 || count + val < 0){
+    if (val == 0 || count + val > 17 || count + val < 0) {
         return;
     }
     count += val;

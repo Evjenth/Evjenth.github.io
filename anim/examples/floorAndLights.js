@@ -25,15 +25,15 @@ for (var i = 0; i < 4; i++) {
 spotlight = new THREE.SpotLight(0xddeeff, 50);
 spotlight.position.set(5, 5, 0);
 spotlight.distance = 10;
-spotlight.castShadow = true;
+//spotlight.castShadow = true;
 
-spotlight.shadow.camera.near = 1;
-spotlight.shadow.camera.far = 20;
+//spotlight.shadow.camera.near = 1;
+//spotlight.shadow.camera.far = 20;
 
 spotlight1 = new THREE.SpotLight(0xddeeff, 50);
 spotlight1.position.set(-5, 5, 0);
 spotlight1.distance = 40;
-spotlight.castShadow = true;
+//spotlight.castShadow = true;
 
 
 floorMat = new THREE.MeshStandardMaterial({
@@ -46,31 +46,31 @@ var textureLoader = new THREE.TextureLoader();
 textureLoader.load("textures/hardwood2_diffuse.jpg", function (map) {
     map.wrapS = THREE.RepeatWrapping;
     map.wrapT = THREE.RepeatWrapping;
-    map.anisotropy = 4;
-    map.repeat.set(10, 24);
+    map.anisotropy = 1;
+    map.repeat.set(5,12);
     floorMat.map = map;
     floorMat.needsUpdate = true;
 });
 textureLoader.load("textures/hardwood2_bump.jpg", function (map) {
     map.wrapS = THREE.RepeatWrapping;
     map.wrapT = THREE.RepeatWrapping;
-    map.anisotropy = 4;
-    map.repeat.set(10, 24);
+    map.anisotropy = 1;
+    map.repeat.set(5,12);
     floorMat.bumpMap = map;
     floorMat.needsUpdate = true;
 });
 textureLoader.load("textures/hardwood2_roughness.jpg", function (map) {
     map.wrapS = THREE.RepeatWrapping;
     map.wrapT = THREE.RepeatWrapping;
-    map.anisotropy = 4;
-    map.repeat.set(10, 24);
+    map.anisotropy = 1;
+    map.repeat.set(5,12);
     floorMat.roughnessMap = map;
     floorMat.needsUpdate = true;
 });
 
 var floorGeometry = new THREE.PlaneBufferGeometry(20, 20);
 var floorMesh = new THREE.Mesh(floorGeometry, floorMat);
-floorMesh.receiveShadow = true;
+//floorMesh.receiveShadow = false;
 floorMesh.rotation.x = -Math.PI / 2.0;
 floorMesh.matrixAutoUpdate = false;
 floorMesh.updateMatrix();

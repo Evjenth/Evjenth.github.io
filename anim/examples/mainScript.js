@@ -33,7 +33,7 @@ function init() {
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
-    var ambLight = new THREE.AmbientLight(0x404040,20); // soft white light
+    var ambLight = new THREE.AmbientLight(0x404040, 20); // soft white light
     scene.add(ambLight);
     scene.add(floorMesh);
     scene.add(hemiLight);
@@ -48,11 +48,11 @@ function init() {
     renderer = new THREE.WebGLRenderer({ antialis: true });
     renderer.physicallyCorrectLights = true;
     renderer.gammaInput = true;
-    renderer.gammaOutput = true;
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    //renderer.gammaOutput = true;
+    //renderer.shadowMap.enabled = true;
+    //renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.ReinhardToneMapping;
-    renderer.setPixelRatio(window.devicePixelRatio);
+    //renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
@@ -73,12 +73,12 @@ function onWindowResize() {
 
 function animate() {
     requestAnimationFrame(animate);
-    if (count_flag != count) {
-        render();
-    }
-    
+
+    render();
+
+
     renderer.render(scene, camera);
-    
+
 }
 
 function render() {
@@ -111,5 +111,5 @@ function render() {
             furObjects[a].setRot(nRot);
         }
     }
-    
+
 }
