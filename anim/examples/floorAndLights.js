@@ -1,6 +1,6 @@
 var ballMat, cubeMat, floorMat, spotlight, spotlight1;
 
-var hemiLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 5);
+var hemiLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 10);
 
 var walls = [];
 var wallGeometry = new THREE.PlaneBufferGeometry(20, 10, 20,10);
@@ -22,18 +22,10 @@ for (var i = 0; i < 4; i++) {
     walls[i].updateMatrix();
 }
 
-spotlight = new THREE.SpotLight(0xddeeff, 50);
-spotlight.position.set(5, 5, 0);
-spotlight.distance = 10;
-//spotlight.castShadow = true;
-
-//spotlight.shadow.camera.near = 1;
-//spotlight.shadow.camera.far = 20;
-
-spotlight1 = new THREE.SpotLight(0xddeeff, 50);
-spotlight1.position.set(-5, 5, 0);
-spotlight1.distance = 40;
-//spotlight.castShadow = true;
+spotlight = new THREE.SpotLight(0xf0f0f0, 200,20,Math.PI/2,0,2);
+spotlight.position.set(0, 8, 0);
+spotlight1 = new THREE.SpotLight(0xf0f0f0, 200,50,Math.PI/2,0,2);
+spotlight1.position.set(10, 10, 10);
 
 
 floorMat = new THREE.MeshStandardMaterial({

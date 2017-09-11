@@ -1,8 +1,9 @@
 document.onkeydown = function (key) { reactKey(key); }
+//Keyboard press
 function reactKey(key) {
     piece(key);
 }
-
+//Buttom press functions from HTML
 function prev() {
     piece(-1);
 }
@@ -10,9 +11,8 @@ function prev() {
 function next() {
     piece(1);
 }
-var count = 0;
-var count_flag = 0;
 
+var count = 0;
 
 var camera, scene, renderer,
     object, loader;
@@ -33,8 +33,6 @@ function init() {
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
-    var ambLight = new THREE.AmbientLight(0x404040, 20); // soft white light
-    scene.add(ambLight);
     scene.add(floorMesh);
     scene.add(hemiLight);
     scene.add(spotlight);
@@ -48,19 +46,15 @@ function init() {
     renderer = new THREE.WebGLRenderer({ antialis: true });
     renderer.physicallyCorrectLights = true;
     renderer.gammaInput = true;
-    //renderer.gammaOutput = true;
-    //renderer.shadowMap.enabled = true;
-    //renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.ReinhardToneMapping;
-    //renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.target.set(0, 0, 0);
-    camera.position.set(0, 10, 20);
+    controls.target.set(0, 3, 0);
+    camera.position.set(5, 10, 20);
     controls.update();
-    camera.lookAt(new THREE.Vector3(0, 0, 0));
+    camera.lookAt(new THREE.Vector3(0, 3, 0));
     window.addEventListener('resize', onWindowResize, false);
     renderer.render(scene, camera);
 }
