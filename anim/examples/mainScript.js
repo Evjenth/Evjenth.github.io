@@ -1,28 +1,13 @@
 document.onkeydown = function (key) { reactKey(key); }
 //Keyboard press
 function reactKey(key) {
-    piece(key);
-}
-//Buttom press functions from HTML
-function prev() {
-    piece(-1);
-}
-
-function next() {
-    piece(1);
+    piece(key.keyCode);
 }
 
 var count = 0;
 
 var camera, scene, renderer,
     object, loader;
-
-
-function writeText(message) {
-    document.getElementById("instruction").innerHTML = message;
-}
-
-var clock = new THREE.Clock();
 
 init();
 animate();
@@ -38,10 +23,7 @@ function init() {
     scene.add(spotlight);
     scene.add(spotlight1);
     scene.add(holder);
-    scene.add(walls[0]);
-    scene.add(walls[1]);
-    scene.add(walls[2]);
-    scene.add(walls[3]);
+    for (var i = 0; i < 4; scene.add(walls[i]), i++);
 
     renderer = new THREE.WebGLRenderer({ antialis: true });
     renderer.physicallyCorrectLights = true;
@@ -67,12 +49,8 @@ function onWindowResize() {
 
 function animate() {
     requestAnimationFrame(animate);
-
     render();
-
-
     renderer.render(scene, camera);
-
 }
 
 function render() {
