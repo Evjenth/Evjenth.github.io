@@ -69,8 +69,8 @@ function render() {
             var nPos = [];
             var nRot = [];
             for (var c = 0; c < 3; c++) {
-                nPos[c] = pos[c] + 10 * Math.sign(goalPos[c] - pos[c]);
-                if (Math.abs(goalPos[c] - pos[c]) < 10)
+                nPos[c] = pos[c] + 0.1 * Math.sign(goalPos[c] - pos[c]);
+                if (Math.abs(goalPos[c] - pos[c]) < 0.1)
                     nPos[c] = goalPos[c];
                 var diffRot = Math.abs(goalRot[c] - rot[c]);
                 if (diffRot < 0.2) {

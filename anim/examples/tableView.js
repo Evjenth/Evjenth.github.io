@@ -1,17 +1,20 @@
 var holder = new THREE.Object3D();
 
 var furObjects = [];
-holder.scale.set(0.01, 0.01, 0.01);
-holder.position.set(0, 0, 5);
-load('bottom', [-350, 0, -50],0);
-load('side_left', [0, 0, -50],1);
-load('side_right', [-350, 0, 0],2);
-load('back_plate', [-675, 0, 100],3);
-load('top', [0, 0, 300], 4);
+//holder.scale.set(0.01, 0.01, 0.01);
+holder.position.set(0, 0, 5 / 100);
+
+//                               THIS ARRAY IS THE SCALES (X,Y,Z(Y is up)).
+load('bottom', [-3.5, 0, -0.5],0,[0.01,0.01,0.01]);
+load('side_left', [0, 0, -0.5], 1, [0.01, 0.01, 0.01]);
+load('side_right', [-3.5, 0, 0], 2, [0.01, 0.01, 0.01]);
+load('back_plate', [-6.75, 0, 1], 3, [0.01, 0.01, 0.01]);
+load('top', [0, 0, 3], 4, [0.01, 0.01, 0.01]);
 holder.matrixAutoUpdate = false;
 holder.updateMatrix();
 
-function load(name, pos,ind) {
+function load(name, pos, ind,scale) {
+
     var path = 'models/obj/';
     var mtlloader = new THREE.MTLLoader();
     var objloader = new THREE.OBJLoader();
@@ -19,7 +22,9 @@ function load(name, pos,ind) {
     mtlloader.setPath(path);
     mtlloader.load(name + '.mtl', function (materials) {
         materials.preload();
+        objloader.setMaterials(materials);
         objloader.load(name + '.obj', function (object) {
+            object.scale.set(scale[0],scale[1],scale[2]);
             object.position.set(pos[0], pos[1], pos[2]);
             object.rotation.set(0, 0, 0);
             furObjects[ind] = {
