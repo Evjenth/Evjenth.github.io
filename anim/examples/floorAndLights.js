@@ -9,6 +9,8 @@ for (var i = 0; i < 4 ; i++){
     walls[i] = new THREE.Mesh(wallGeometry, wallMat);
    
 }
+var room = new THREE.Object3D();
+
 walls[0].position.set(0, 5, -10);
 walls[1].rotation.y = Math.PI / 2;
 walls[1].position.set(-10, 5, 0);
@@ -21,6 +23,8 @@ for (var i = 0; i < 4; i++) {
     walls[i].matrixAutoUpdate = false;
     walls[i].updateMatrix();
 }
+
+for(var i = 0; i < 4 ; room.add(walls[i]),i++);
 
 spotlight = new THREE.SpotLight(0xf0f0f0, 200,20,Math.PI/2,0,2);
 spotlight.position.set(0, 8, 0);

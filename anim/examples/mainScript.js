@@ -23,8 +23,8 @@ function init() {
     scene.add(spotlight);
     scene.add(spotlight1);
     scene.add(holder);
-    for (var i = 0; i < 4; scene.add(walls[i]), i++);
-
+    //for (var i = 0; i < 4; scene.add(walls[i]), i++);
+    scene.add(room);
     renderer = new THREE.WebGLRenderer({ antialis: true });
     renderer.physicallyCorrectLights = true;
     renderer.gammaInput = true;

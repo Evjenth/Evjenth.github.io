@@ -3,13 +3,14 @@ var holder = new THREE.Object3D();
 var furObjects = [];
 //holder.scale.set(0.01, 0.01, 0.01);
 holder.position.set(0, 0, 5 / 100);
+var default_scale = [0.01,0.01,0.01];
 
 //                               THIS ARRAY IS THE SCALES (X,Y,Z(Y is up)).
-load('bottom', [-3.5, 0, -0.5],0,[0.01,0.01,0.01]);
-load('side_left', [0, 0, -0.5], 1, [0.01, 0.01, 0.01]);
-load('side_right', [-3.5, 0, 0], 2, [0.01, 0.01, 0.01]);
-load('back_plate', [-6.75, 0, 1], 3, [0.01, 0.01, 0.01]);
-load('top', [0, 0, 3], 4, [0.01, 0.01, 0.01]);
+load('bottom', [-3.5, 0, -0.5],0,default_scale);
+load('side_left', [0, 0, -0.5], 1, default_scale);
+load('side_right', [-3.5, 0, 0], 2, default_scale);
+load('back_plate', [-6.75, 0, 1], 3, default_scale);
+load('top', [0, 0, 3], 4, default_scale);
 holder.matrixAutoUpdate = false;
 holder.updateMatrix();
 
