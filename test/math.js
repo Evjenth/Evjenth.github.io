@@ -51,7 +51,7 @@ write("Sum-to-product formulas",32,36);
 write("Product-to-sum formulas",36,40);
 
 function write(header, start, end) {
-    document.writeln(header);
+    document.writeln("<h2>" +header+"<h2>");
     for (var a = start; a < end; a++) {
         M.parseMath(s[a]);
         document.write(s[a]);
