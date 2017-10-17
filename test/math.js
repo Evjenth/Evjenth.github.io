@@ -46,9 +46,9 @@ write("Co-function identities:",11,17);
 write("Even-odd identities:",17,23);
 write("Sum-difference formulas:",23,26);
 write("Double angle formulas:",26,29);
-write("Power-reducing/half angle formulas",29,32);
-write("Sum-to-product formulas",32,36);
-write("Product-to-sum formulas",36,40);
+write("Power-reducing/half angle formulas:",29,32);
+write("Sum-to-product formulas:",32,36);
+write("Product-to-sum formulas:",36,40);
 
 function write(header, start, end) {
     document.writeln("<h2>" +header+"</h2>");
