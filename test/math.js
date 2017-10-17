@@ -54,7 +54,6 @@ function write(header, start, end) {
     document.writeln("<h2>" +header+"<h2>");
     for (var a = start; a < end; a++) {
         M.parseMath(s[a]);
-        document.write(s[a]);
-        document.write("<br>");
+        document.write("<p>" + s[a] + "</p><br>");
     }
 }
