@@ -105,8 +105,10 @@ function shelfTick() {
     } else if (frames > 500 && !flag5) {
         //load('eske_topp', [0, 3.6, 0], 4, def_scale, [Math.PI / 2, 0, 0]);
         load('eske_topp', [0, 6, 0], 4, def_scale, [Math.PI / 2, 0, 0]);
+        flag5 = true;
     } else if (frames > 600 && !flag6) {
         shelfPiece[4].goalPos = [0, 3.6, 0];
+        flag6 = true;
     }
 
 }
