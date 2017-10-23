@@ -13,14 +13,14 @@ function init() {
 
 function setControls() {
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.target.set(0, 3, 0);
+    controls.target.set(0, 2, 0);
     controls.update();
 }
 
 function setCamera() {
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 50);
-    camera.position.set(5, 10, 20);
-    camera.lookAt(new THREE.Vector3(0, 3, 0));
+    camera.position.set(15, 8, 0);
+    camera.lookAt(new THREE.Vector3(0, 1, 0));
     window.addEventListener('resize', onWindowResize, false);
 }
 
