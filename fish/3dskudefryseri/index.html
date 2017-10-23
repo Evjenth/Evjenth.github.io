@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prototype</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+     minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+    <div id="container"></div>
+    <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+         unselectable="on"
+         onselectstart="return false;"
+         onmousedown="return false;"
+         id="prev" onclick="piece(65)">
+        <p>previous</p>
+    </div>
+    <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+         unselectable="on"
+         onselectstart="return false;"
+         onmousedown="return false;"
+         id="next" onclick="piece(68)">
+        <p>next</p>
+    </div>
+
+    <div id="info">
+    </div>
+    <div class="tooltip">
+        Help
+        <span class="tooltiptext">
+            Use "A" and "D" (or buttons in bottom corners) to iterate through the instructions.<br />
+            controls: for computer: left click to rotate, right click to pan and mousewheel to zoom.<br />
+            for android devices: tap and drag to rotate, zoom with two fingers, and pan with three.
+        </span>
+    </div>
+    <div id="textbox">
+        <p id="instruction"></p>
+    </div>
+
+
+
+    <script src="../build/three.js"></script>
+    <script src="../js/loaders/MTLLoader.js"></script>
+    <script src="../js/loaders/OBJLoader.js"></script>
+    <script src="../js/controls/OrbitControls.js"></script>
+    <script src="js/cameraHandler.js?2"></script>
+    <script src="js/modelLoader.js?17"></script>
+    <script src="js/instructions.js?17"></script>
+    <script src="js/floorAndLights.js?17"></script>
+    <script src="js/mainScript.js?17"></script>
+</body>
+</html>
