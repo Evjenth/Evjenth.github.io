@@ -1,0 +1,23 @@
+﻿*{
+    border: 1px solid black;
+}
+
+body {
+    background-color: #fff;
+    margin: 0px;
+    overflow: hidden;
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#container {
+    position: absolute;
+    background:#ff0000;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    z-index: 1;
+}
+
