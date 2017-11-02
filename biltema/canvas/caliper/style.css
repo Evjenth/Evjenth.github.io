@@ -1,8 +1,15 @@
 ﻿
 body {
-    background-color: #fff;
+    background: url("images/background.png") no-repeat center center fixed;
+    
+    background-size: 100% 100%;
+    
+    height: 100%;
+    
+    position: absolute; 
+    
+    width: 100%;
     margin: 0px;
-    overflow: hidden;
     font-family: "Roboto", Arial, sans-serif;
     font-weight: 300;
     font-size: 20px;
@@ -10,9 +17,9 @@ body {
 
 #container {
     position: absolute;
-    top: 285px;
-    left: 672px;
-    width: 555px;
-    height: 360px;
+    top: 29%;
+    left: 36%;
+    width: 28%;
+    height: 34%;
 }
 
